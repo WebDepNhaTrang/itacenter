@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Admin
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
 
 Route::get('/', function () {
     return view('frontend.pages.home');
@@ -35,6 +39,7 @@ Route::get('/lien-he', function (){
     return view('frontend.pages.contact');
 })->name('frontend.pages.contact');
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
+Route::get('/{slug}', [
+    'uses'  => 'FrontendController@singlePost',
+    'as'    => 'post.single'
+]);

@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="breadcrumb_area">
-        <div class="breadcrumb_top">
+        <div class="breadcrumb_top" style="background: url({{ Voyager::image(setting('about.banner_image')) }}); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
             <div class="container">
                 <div class="row">
                     <div class="breadcrumb_title section-padding">
@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-sm-7">
                             <ul>
-                                <li><a href="index-2.html">Trang chủ</a></li>
+                                <li><a href="{{ url('/') }}">Trang chủ</a></li>
                                 <li>Giới thiệu</li>
                             </ul>
                         </div>
@@ -37,12 +37,9 @@
             <div class="row">
                 <div class="col-md-6 section-padding od_bg1">
                     <div class="our_degrees_txt">
-                        <h2>Chào mừng bạn</h2>
+                        <h2>{{ setting('about.block_left_heading') }}</h2>
                         <p>
-                            Trung tâm Công nghệ thông tin và Mỹ thuật ứng dụng ra đời với sự mệnh cao cả đem lại cho các học viên những khóa học tốt nhất, 
-                            cập nhật công nghệ mới, 
-                            giúp học viên không chỉ học mà còn có cơ hội gặp gỡ tiếp xúc với xu thế của tương lai. Bạn sẽ có đủ tự tin bước vào cuộc sống
-                            khi có đủ hành trang cho tương lại.
+                            {{ setting('about.block_left_content') }}
                         </p>
                     </div>
                 </div>
@@ -51,39 +48,39 @@
                         <div class="single_our_degree">
                             <div class="col-sm-3">
                                 <div class="sing_degree_icon">
-                                    <img src="{{ asset('/assets/main-project/img/icon_our_degree_1.png') }}" alt="">
+                                    <img src="{{ Voyager::image(setting('about.block_right_icon1')) }}" alt="">
                                 </div>
                             </div>
                             <div class="col-sm-9 fix_p">
                                 <div class="sing_degree_txt">
-                                    <h2>Công nghệ thông tin</h2>
-                                    <p>You would see the biggest gift would be from me and the card attached would say thank you for being a friend.</p>
+                                    <h2>{{ setting('about.block_right_heading1') }}</h2>
+                                    <p>{{ setting('about.block_right_content1') }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="single_our_degree">
                             <div class="col-sm-3">
                                 <div class="sing_degree_icon">
-                                    <img src="{{ asset('/assets/main-project/img/icon_our_degree_2.png') }}" alt="">
+                                    <img src="{{ Voyager::image(setting('about.block_right_icon2')) }}" alt="">
                                 </div>
                             </div>
                             <div class="col-sm-9 fix_p">
                                 <div class="sing_degree_txt">
-                                    <h2>Mỹ thuật ứng dụng</h2>
-                                    <p>On your mark get set and go now. Got a dream and we just know now we're gonna make our dream come true. </p>
+                                    <h2>{{ setting('about.block_right_heading2') }}</h2>
+                                    <p>{{ setting('about.block_right_content2') }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="single_our_degree">
                             <div class="col-sm-3">
                                 <div class="sing_degree_icon">
-                                    <img src="{{ asset('/assets/main-project/img/icon_our_degree_3.png') }}" alt="">
+                                    <img src="{{ Voyager::image(setting('about.block_right_icon3')) }}" alt="">
                                 </div>
                             </div>
                             <div class="col-sm-9 fix_p">
                                 <div class="sing_degree_txt">
-                                    <h2>Thiết kế thời trang</h2>
-                                    <p>Just sit right back and you'll hear a tale a tale of a fateful trip that started from this tropic port aboard this tiny ship.</p>
+                                    <h2>{{ setting('about.block_right_heading3') }}</h2>
+                                    <p>{{ setting('about.block_right_content3') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -98,37 +95,37 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="why_choose_us_photo">
-                        <img src="{{ asset('/assets/main-project/img/why_choose_us_photo.jpg') }}" alt="">
+                        <img src="{{ Voyager::image(setting('home.why_section_image')) }}" alt="">
                     </div>
                 </div>
                 <div class="col-md-7">
                     <div class="why_choose_us_txt">
-                        <h1>Lý do bạn nên chọn chúng tôi?</h1>
-                        <p>The ship set ground on the shore of this uncharted desert isle with Gilligan the Skipper too the millionaire and his wife. These days are all Happy and Free. These days are all share them with me.</p>
-                        <p>It's time to put on makeup. It's time to dress up right. It's time to raise the curtain on the Muppet Show tonight. </p>
+                        <h1>{{ setting('home.why_section_heading') }}</h1>
+                        <p>{!! setting('home.why_section_content') !!}</p>
+                        
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="single_why_choose">
                                     <div class="single_why_choose_icon">
-                                        <img src="{{ asset('/assets/main-project/img/icon_why_choose_1.png') }}" alt="">
+                                        <img src="{{ Voyager::image(setting('home.why_section_single1_icon')) }}" alt="">
                                     </div>
-                                    <h3>Experienced Faculty</h3>
+                                    <h3>{{ setting('home.why_section_single1_title') }}</h3>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="single_why_choose">
                                     <div class="single_why_choose_icon">
-                                        <img src="{{ asset('/assets/main-project/img/icon_why_choose_2.png') }}" alt="">
+                                        <img src="{{ Voyager::image(setting('home.why_section_single2_icon')) }}" alt="">
                                     </div>
-                                    <h3>Popular Courses</h3>
+                                    <h3>{{ setting('home.why_section_single2_title') }}</h3>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="single_why_choose">
                                     <div class="single_why_choose_icon">
-                                        <img src="{{ asset('/assets/main-project/img/icon_why_choose_3.png') }}" alt="">
+                                        <img src="{{ Voyager::image(setting('home.why_section_single3_icon')) }}" alt="">
                                     </div>
-                                    <h3>Guaranteed Career</h3>
+                                    <h3>{{ setting('home.why_section_single3_title') }}</h3>
                                 </div>
                             </div>
                         </div>

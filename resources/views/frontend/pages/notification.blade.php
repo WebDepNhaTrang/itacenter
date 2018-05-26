@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="breadcrumb_area">
-        <div class="breadcrumb_top">
+        <div class="breadcrumb_top" style="background: url({{ Voyager::image(setting('notification.banner_image')) }}); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
             <div class="container">
                 <div class="row">
                     <div class="breadcrumb_title section-padding">
@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-sm-7">
                             <ul>
-                                <li><a href="index-2.html">Trang chủ</a></li>
+                                <li><a href="{{ url('/') }}">Trang chủ</a></li>
                                 <li>Thông báo</li>
                             </ul>
                         </div>
@@ -37,155 +37,50 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section_heading">
-                        <h1>Thông báo từ Trung tâm</h1>
-                        <p>Cập nhật mới nhất đến các bạn học viên</p>
+                        <h1>{{ setting('notification.heading') }}</h1>
+                        <p>{{ setting('notification.sub_heading') }}</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="all_latest_blog_post">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single_blog_post_box">
-                            <div class="blog_post_photo">
-                                <img src="{{ asset('/assets/main-project/img/latest_blog_post_4.jpg') }}" alt="">
-                                <div class="blog_post_date_caption">
-                                    <span>08 Apr</span>
+                    <?php
+                        $paginate = setting('notification.paginate');
+                        $posts = getAllPosts('*', 2, 'created_at', 'desc', $paginate);
+                        // echo $posts[0]->category->name;
+                        // echo "<pre>";
+                        // print_r($posts);
+                        // echo "</pre>";
+                    ?>
+                    @foreach($posts as $post)
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single_blog_post_box">
+                                <div class="blog_post_photo">
+                                    <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
+                                    <div class="blog_post_date_caption">
+                                        <span>{{ $post->created_at->format('d M') }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="blog_post_txt">
-                                <div class="blog_post_heading">
-                                    <h2><a href="single-post.html">Love life's sweetest reward Let it</a></h2>
-                                    <p>Posted By : Admin</p>
-                                </div>
-                                <div class="blog_post_content">
-                                    <p>A man is born he's a man of means. Then along come two they got nothin' but their jeans. Just two good ol' boys </p>
-                                    <ul>
-                                        <li><i class="pe-7s-comment"></i>7 Comments</li>
-                                        <li><i class="pe-7s-like"></i>10 Likes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single_blog_post_box">
-                            <div class="blog_post_photo">
-                                <img src="{{ asset('/assets/main-project/img/latest_blog_post_5.jpg') }}" alt="">
-                                <div class="blog_post_date_caption">
-                                    <span>08 Apr</span>
-                                </div>
-                            </div>
-                            <div class="blog_post_txt">
-                                <div class="blog_post_heading">
-                                    <h2><a href="single-post.html">fateful trip that started tropic</a></h2>
-                                    <p>Posted By : Admin</p>
-                                </div>
-                                <div class="blog_post_content">
-                                    <p>Movin' on up to the east side. We finally got a piece of the pie. We're gonna do it. On your mark get set and go now.</p>
-                                    <ul>
-                                        <li><i class="pe-7s-comment"></i>7 Comments</li>
-                                        <li><i class="pe-7s-like"></i>20 Likes</li>
-                                    </ul>
+                                <div class="blog_post_txt">
+                                    <div class="blog_post_heading">
+                                        <h2><a href="{{ route('post.single', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
+                                        <p>Đăng bởi : {{ $post->authorId->name }}</p>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <p>{{ $post->excerpt }}</p>
+                                        <ul>
+                                            <li><i class="pe-7s-comment"></i>7 Bình Luận</li>
+                                            <li><i class="pe-7s-like"></i>10 Thích</li>
+                                            <li><i class="pe-7s-look"></i>19 Lượt xem</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-offset-0 col-md-4 col-sm-6 col-sm-offset-3">
-                        <div class="single_blog_post_box">
-                            <div class="blog_post_photo">
-                                <img src="{{ asset('/assets/main-project/img/latest_blog_post_6.jpg') }}" alt="">
-                                <div class="blog_post_date_caption">
-                                    <span>08 Apr</span>
-                                </div>
-                            </div>
-                            <div class="blog_post_txt">
-                                <div class="blog_post_heading">
-                                    <h2><a href="single-post.html">Rockin' and rollin' all week long</a></h2>
-                                    <p>Posted By : Admin</p>
-                                </div>
-                                <div class="blog_post_content">
-                                    <p>where people come to see ‘em. They really are a scream the Addams Family. The Love Boat soon will be making another run. </p>
-                                    <ul>
-                                        <li><i class="pe-7s-comment"></i>11 Comments</li>
-                                        <li><i class="pe-7s-like"></i>15 Likes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="all_latest_blog_post">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single_blog_post_box">
-                            <div class="blog_post_photo">
-                                <img src="{{ asset('/assets/main-project/img/latest_blog_post_4.jpg') }}" alt="">
-                                <div class="blog_post_date_caption">
-                                    <span>08 Apr</span>
-                                </div>
-                            </div>
-                            <div class="blog_post_txt">
-                                <div class="blog_post_heading">
-                                    <h2><a href="single-post.html">Love life's sweetest reward Let it</a></h2>
-                                    <p>Posted By : Admin</p>
-                                </div>
-                                <div class="blog_post_content">
-                                    <p>A man is born he's a man of means. Then along come two they got nothin' but their jeans. Just two good ol' boys </p>
-                                    <ul>
-                                        <li><i class="pe-7s-comment"></i>7 Comments</li>
-                                        <li><i class="pe-7s-like"></i>10 Likes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single_blog_post_box">
-                            <div class="blog_post_photo">
-                                <img src="{{ asset('/assets/main-project/img/latest_blog_post_5.jpg') }}" alt="">
-                                <div class="blog_post_date_caption">
-                                    <span>08 Apr</span>
-                                </div>
-                            </div>
-                            <div class="blog_post_txt">
-                                <div class="blog_post_heading">
-                                    <h2><a href="single-post.html">fateful trip that started tropic</a></h2>
-                                    <p>Posted By : Admin</p>
-                                </div>
-                                <div class="blog_post_content">
-                                    <p>Movin' on up to the east side. We finally got a piece of the pie. We're gonna do it. On your mark get set and go now.</p>
-                                    <ul>
-                                        <li><i class="pe-7s-comment"></i>7 Comments</li>
-                                        <li><i class="pe-7s-like"></i>20 Likes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-offset-0 col-md-4 col-sm-6 col-sm-offset-3">
-                        <div class="single_blog_post_box">
-                            <div class="blog_post_photo">
-                                <img src="{{ asset('/assets/main-project/img/latest_blog_post_6.jpg') }}" alt="">
-                                <div class="blog_post_date_caption">
-                                    <span>08 Apr</span>
-                                </div>
-                            </div>
-                            <div class="blog_post_txt">
-                                <div class="blog_post_heading">
-                                    <h2><a href="single-post.html">Rockin' and rollin' all week long</a></h2>
-                                    <p>Posted By : Admin</p>
-                                </div>
-                                <div class="blog_post_content">
-                                    <p>where people come to see ‘em. They really are a scream the Addams Family. The Love Boat soon will be making another run. </p>
-                                    <ul>
-                                        <li><i class="pe-7s-comment"></i>11 Comments</li>
-                                        <li><i class="pe-7s-like"></i>15 Likes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
+            {{ $posts->links() }}
         </div>
     </section>
 @endsection

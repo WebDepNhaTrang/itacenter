@@ -3,36 +3,29 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section_heading">
-                    <h1>Đánh giá của học viên</h1>
-                    <p>Testimonials from students</p>
+                    <h1>{{ setting('home.testimonials_section_heading') }}</h1>
+                    <p>{{ setting('home.testimonials_section_des') }}</p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-offset-2 col-md-8">
                 <div class="all_testimonial">
-                    <div class="single_testi_slider">
-                        <div class="testi_student_photo">
-                            <img src="{{ asset('/assets/main-project/img/test_slider_1.jpg') }}" alt="">
-                            <i class="fa fa-quote-right"></i>
+                    <?php
+                        $testimonials = getAllTestimonialsFront();
+                    ?>
+                    @foreach($testimonials as $value)
+                        <div class="single_testi_slider">
+                            <div class="testi_student_photo">
+                                <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
+                                <i class="fa fa-quote-right"></i>
+                            </div>
+                            <div class="testi_studient_txt">
+                                <p>{{ $value->testimonial }}</p>
+                                <h3><span>{{ $value->name }}   |</span>   {{ $value->job }}</h3>
+                            </div>
                         </div>
-                        <div class="testi_studient_txt">
-                            <p>when the odds are against him and their dangers work to do. The Love Boat soon will be making 
-another run. The Love Boat promises something for everyone</p>
-                            <h3><span>Jesicca Mathews   |</span>   Business Management</h3>
-                        </div>
-                    </div>
-                    <div class="single_testi_slider">
-                        <div class="testi_student_photo">
-                            <img src="{{ asset('/assets/main-project/img/test_slider_1.jpg') }}" alt="">
-                            <i class="fa fa-quote-right"></i>
-                        </div>
-                        <div class="testi_studient_txt">
-                            <p>when the odds are against him and their dangers work to do. The Love Boat soon will be making 
-another run. The Love Boat promises something for everyone</p>
-                            <h3><span>Jesicca Mathews   |</span>   Business Management</h3>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

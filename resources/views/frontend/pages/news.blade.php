@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="breadcrumb_area">
-    <div class="breadcrumb_top">
+    <div class="breadcrumb_top" style="background: url({{ Voyager::image(setting('news.banner_image')) }}); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
         <div class="container">
             <div class="row">
                 <div class="breadcrumb_title section-padding">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-7">
                         <ul>
-                            <li><a href="index-2.html">Trang chủ</a></li>
+                            <li><a href="{{ url('/') }}">Trang chủ</a></li>
                             <li>Tin tức</li>
                         </ul>
                     </div>
@@ -37,143 +37,42 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section_heading">
-                    <h1>Information About Alumni</h1>
-                    <p>Check out the details of alumni</p>
+                    <h1>{{ setting('news.heading') }}</h1>
+                    <p>{{ setting('news.sub_heading') }}</p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="all_alumni_item">
+                <?php
+                    $paginate = setting('news.paginate');
+                    $posts = getAllPosts('*', 1, 'created_at', 'desc', $paginate);
+                    // echo $posts[0]->category->name;
+                    // echo "<pre>";
+                    // print_r($posts);
+                    // echo "</pre>";
+                ?>
+                @foreach($posts as $post)
                 <div class="col-sm-6">
                     <div class="single_alumni_box">
                         <div class="col-sm-4 fix_p_l">
                             <div class="sing_alumni_photo">
-                                <img src="{{ asset('/assets/main-project/img/alumni_photo_1.jpg') }}" alt="">
+                                <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
                             </div>
                         </div>
                         <div class="col-md-8 fix_p_l">
                             <div class="sing_alumni_txt">
-                                <h2>Our Alumni</h2>
-                                <p>No one you see is smarter than he. Didn't need no welfare states. Everybody pulled his weight. Gee our old Lasalle ran great. </p>
-                                <a href="#">Read more</a>
+                                <h2>{{ $post->title }}</h2>
+                                <p>{{ $post->excerpt }}</p>
+                                <a href="{{ route('post.single', ['slug' => $post->slug]) }}">Read more</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="single_alumni_box">
-                        <div class="col-sm-4 fix_p_l">
-                            <div class="sing_alumni_photo">
-                                <img src="{{ asset('/assets/main-project/img/alumni_photo_2.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-8 fix_p_l">
-                            <div class="sing_alumni_txt">
-                                <h2>Awards</h2>
-                                <p>Well we're movin' on up to the east side. To a deluxe apartment in the sky. Baby if you've ever wondered  wondered whatever became of me. </p>
-                                <a href="#">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single_alumni_box">
-                        <div class="col-sm-4 fix_p_l">
-                            <div class="sing_alumni_photo">
-                                <img src="{{ asset('/assets/main-project/img/alumni_photo_3.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-8 fix_p_l">
-                            <div class="sing_alumni_txt">
-                                <h2>Events</h2>
-                                <p>Groovin' all week with you! He's gainin' on you so you better look alive. He busy revin' up his Powerful  The mate was a mighty sailin' man.</p>
-                                <a href="#">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single_alumni_box">
-                        <div class="col-sm-4 fix_p_l">
-                            <div class="sing_alumni_photo">
-                                <img src="{{ asset('/assets/main-project/img/alumni_photo_4.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-8 fix_p_l">
-                            <div class="sing_alumni_txt">
-                                <h2>Benefits & Services</h2>
-                                <p>To a deluxe apartment in the sky? Well we're movin' on up to the east side to a deluxe apartment in the sky these Happy Days are yours crawl on.</p>
-                                <a href="#">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single_alumni_box">
-                        <div class="col-sm-4 fix_p_l">
-                            <div class="sing_alumni_photo">
-                                <img src="{{ asset('/assets/main-project/img/alumni_photo_4.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-8 fix_p_l">
-                            <div class="sing_alumni_txt">
-                                <h2>Benefits & Services</h2>
-                                <p>To a deluxe apartment in the sky? Well we're movin' on up to the east side to a deluxe apartment in the sky these Happy Days are yours crawl on.</p>
-                                <a href="#">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single_alumni_box">
-                        <div class="col-sm-4 fix_p_l">
-                            <div class="sing_alumni_photo">
-                                <img src="{{ asset('/assets/main-project/img/alumni_photo_4.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-8 fix_p_l">
-                            <div class="sing_alumni_txt">
-                                <h2>Benefits & Services</h2>
-                                <p>To a deluxe apartment in the sky? Well we're movin' on up to the east side to a deluxe apartment in the sky these Happy Days are yours crawl on.</p>
-                                <a href="#">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single_alumni_box">
-                        <div class="col-sm-4 fix_p_l">
-                            <div class="sing_alumni_photo">
-                                <img src="{{ asset('/assets/main-project/img/alumni_photo_4.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-8 fix_p_l">
-                            <div class="sing_alumni_txt">
-                                <h2>Benefits & Services</h2>
-                                <p>To a deluxe apartment in the sky? Well we're movin' on up to the east side to a deluxe apartment in the sky these Happy Days are yours crawl on.</p>
-                                <a href="#">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single_alumni_box">
-                        <div class="col-sm-4 fix_p_l">
-                            <div class="sing_alumni_photo">
-                                <img src="{{ asset('/assets/main-project/img/alumni_photo_4.jpg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-8 fix_p_l">
-                            <div class="sing_alumni_txt">
-                                <h2>Benefits & Services</h2>
-                                <p>To a deluxe apartment in the sky? Well we're movin' on up to the east side to a deluxe apartment in the sky these Happy Days are yours crawl on.</p>
-                                <a href="#">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
+        {{ $posts->links() }}
     </div>
 </section>
 
