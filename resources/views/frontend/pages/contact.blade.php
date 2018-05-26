@@ -1,10 +1,10 @@
 @extends('frontend.layouts.master')
 
-@section('title', 'Thông Báo')
+@section('title', 'Liên Hệ')
 
 @section('content')
     <section class="breadcrumb_area">
-        <div class="breadcrumb_top">
+        <div class="breadcrumb_top" style="background: url({{ Voyager::image(setting('contact.banner_image')) }}); background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;">
             <div class="container">
                 <div class="row">
                     <div class="breadcrumb_title section-padding">
@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-sm-7">
                             <ul>
-                                <li><a href="index-2.html">Trang chủ</a></li>
+                                <li><a href="{{ url('/') }}">Trang chủ</a></li>
                                 <li>Liên hệ</li>
                             </ul>
                         </div>
@@ -32,13 +32,13 @@
         </div>
     </section>
 
-    <section class="send_us_email_area">
+    <section class="send_us_email_area" style="background: url({{ Voyager::image(setting('contact.image')) }}) no-repeat scroll left center / cover rgba(0, 0, 0, 0); overflow: hidden;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-offset-6 fix_p">
                     <div class="send_email">
                         <div class="section-padding">
-                            <h2>Hãy liên hệ với chúng tôi</h2>
+                            <h2>{{ setting('contact.heading') }}</h2>
                             <div class="email_form">
                                 <form action="http://wpmines.com/demos/educampus/contact.html">
                                     <div class="col-md-6 fix_p_r">

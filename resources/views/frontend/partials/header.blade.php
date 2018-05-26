@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-2">
                     <div class="logo">
-                        <a href="{{ url('/') }}"><img src="{{ asset('/assets/main-project/img/logoITA.jpg') }}" alt="">ITA<span> Center</span></a>                           
+                        <a href="{{ url('/') }}"><img src="{{ Voyager::image(setting('site.logo')) }}" alt="ITA Center">ITA<span> Center</span></a>                           
                     </div>
                 </div>                                    
                 <div class="col-md-9 col-sm-10 nav_area">

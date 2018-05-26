@@ -14,7 +14,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>TT CNTT&MTUD | @yield('title')</title>
+        <title>@yield('title') | TT CNTT&MTUD</title>
 
         @include('frontend.partials.head')
     </head>
@@ -23,8 +23,6 @@
         @include('frontend.partials.header')
 
         @yield('content')
-
-        
 
         @include('frontend.partials.footer')
     </body>
