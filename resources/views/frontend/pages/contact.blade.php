@@ -39,27 +39,34 @@
                     <div class="send_email">
                         <div class="section-padding">
                             <h2>{{ setting('contact.heading') }}</h2>
+                            
                             <div class="email_form">
-                                <form action="http://wpmines.com/demos/educampus/contact.html">
+                                @if(Session::has('success'))
+                                <div class="alert alert-success">
+                                    {{ Session::get('success') }}
+                                </div>
+                                @endif
+                                <form action="{{ route('contact.store') }}" method="post">
+                                    @csrf
                                     <div class="col-md-6 fix_p_r">
                                         <label>Tên của bạn <span>*</span></label>
-                                        <input type="text">
+                                        <input type="text" name="name" required>
                                     </div>
                                     <div class="col-md-6 fix_p_r">
                                         <label>E-mail<span>*</span></label>
-                                        <input type="text">
+                                        <input type="email" name="email" required>
                                     </div>
                                     <div class="col-md-6 fix_p_r">
-                                        <label>Số điện thoại</label>
-                                        <input type="text">
+                                        <label>Số điện thoại <span>*</span></label>
+                                        <input type="text" name="phone" required>
                                     </div>
                                     <div class="col-md-6 fix_p_r">
-                                        <label>Chủ đề</label>
-                                        <input type="text">
+                                        <label>Chủ đề <span>*</span></label>
+                                        <input type="text" name="obj" required>
                                     </div>
                                     <div class="col-md-12 fix_p_r">
-                                        <label>Nội dung</label>
-                                        <textarea name="" cols="30" rows="10"></textarea>
+                                        <label>Nội dung <span>*</span></label>
+                                        <textarea name="msg" cols="30" rows="10" required></textarea>
                                         <input type="submit" value="Gửi"></div>
                                 </form>
                             </div>
