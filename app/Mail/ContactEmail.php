@@ -29,9 +29,8 @@ class ContactEmail extends Mailable
      */
     public function build()
     {
-        return $this
-        ->to(setting('contact.send_to_email'))
-        ->subject(setting('site.title'))
-        ->view('frontend.emails.contact');
+        return $this->from('webdepnhatrang@gmail.com', 'ITA Center')
+                    ->subject('Contact Notification')
+                    ->view('frontend.emails.contact');
     }
 }
