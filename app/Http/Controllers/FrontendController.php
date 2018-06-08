@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use TCG\Voyager\Models\Post;
+use App\CoursesFront;
 
 class FrontendController extends Controller
 {
@@ -17,5 +18,11 @@ class FrontendController extends Controller
         return view('frontend.single')->with('post', $post)
                                       ->with('count_post_news', $count_post_news)
                                       ->with('count_post_noti', $count_post_noti);
+    }
+
+    public function singleCourse($id){
+        $course = CoursesFront::findOrFail($id);
+
+        return view('frontend.single-course')->with('course', $course);
     }
 }

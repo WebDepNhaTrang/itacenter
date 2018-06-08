@@ -10,12 +10,36 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Admin
+
+/*
+|--------------------------------------------------------------------------
+| Backend
+|--------------------------------------------------------------------------
+*/
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    // Mark For Center Class
+    Route::get('/mark/add/{center_class_id}', [
+        'uses'  => 'Backend\MarkController@getAdd',
+        'as'    => 'backend.mark.getAdd'
+    ]);
+    Route::post('/mark/add', [
+        'uses'  => 'Backend\MarkController@postAdd',
+        'as'    => 'backend.mark.postAdd'
+    ]);
+
+    Route::get('/excel/import-students', [
+        'uses'  => 'Backend\ExcelController@getImportStudents',
+        'as'    => 'backend.excel.getImportStudents'
+    ]);
 });
 
-// Frontend
+/*
+|--------------------------------------------------------------------------
+| Frontend
+|--------------------------------------------------------------------------
+*/
 Route::get('/', function () {
     return view('frontend.pages.home');
 })->name('frontend.pages.home');
@@ -28,6 +52,12 @@ Route::get('/khoa-hoc', function (){
     return view('frontend.pages.courses');
 })->name('frontend.pages.courses');
 
+// Courses Detail
+Route::get('/khoa-hoc/{id}', [
+    'uses'  => 'FrontendController@singleCourse',
+    'as'    => 'course.single'
+]);
+
 Route::get('/tin-tuc', function (){
     return view('frontend.pages.news');
 })->name('frontend.pages.news');
@@ -36,11 +66,15 @@ Route::get('/thong-bao', function (){
     return view('frontend.pages.notification');
 })->name('frontend.pages.notification');
 
+// Liên hệ
 Route::get('/lien-he', function (){
     return view('frontend.pages.contact');
 })->name('frontend.pages.contact');
 Route::post('contact', 'ContactController@store')->name('contact.store');
 
+
+
+// Post Detail
 Route::get('/{slug}', [
     'uses'  => 'FrontendController@singlePost',
     'as'    => 'post.single'

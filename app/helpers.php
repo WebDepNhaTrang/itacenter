@@ -55,3 +55,20 @@ if(! function_exists('getLatestPosts')){
         return $item;
     }
 }
+
+/*
+ * @select: string
+ * @cat_id: number
+ * @order_col: string
+ * @order_by: asc/desc
+ * @limit: number
+ */
+if(! function_exists('getLatestCourses')){
+    function getLatestCourses($select='*', $order_col, $order_by='asc', $limit = 4){
+        $item = App\CoursesFront::select($select)
+                    ->orderBy($order_col, $order_by)
+                    ->limit($limit)
+                    ->get();
+        return $item;
+    }
+}

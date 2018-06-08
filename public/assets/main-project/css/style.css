@@ -78,7 +78,7 @@ img {
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 15px;
-    font-family: 'LatoMedium', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 p{
     color: #777777;
@@ -86,9 +86,11 @@ p{
 }
 html, body {
     height: 100%;
-    font-family: 'LatoMedium', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-body {  }
+body { 
+    font-family: Arial, Helvetica, sans-serif;
+ }
 .fix_p{
     padding:0;
 }
@@ -158,7 +160,7 @@ a.rm_btn{
     padding: 0 28px;
     display: inline-block;
     text-transform: uppercase;
-    font-family: 'LatoHeavy', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     height: 42px;
 }
 .key_to_success_area, .key_to_success_area .container, .key_to_success_area .container .row, .key_to_success_area .container .row .key_to_success {
@@ -171,7 +173,7 @@ a.rm_btn{
     text-align: center;
 }
 .section_heading h1{
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 42px;
     font-weight: 700;
     margin: 0;
@@ -220,7 +222,7 @@ Breadcrumb CSS
 }
 .breadcrumb_title h2{
   color: #fff;
-  font-family: "Libre Baskerville",serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 42px;
   font-weight: 700;
 }
@@ -237,7 +239,7 @@ Breadcrumb CSS
     line-height: 70px;
     margin: 0;
     font-size: 24px;
-    font-family: "Libre Baskerville",serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
 }
 .breadcrumb_nav ul{
@@ -246,7 +248,7 @@ Breadcrumb CSS
 }
 .breadcrumb_nav ul li {
   display: inline-block;
-  font-family: "Libre Baskerville",serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 70px;
@@ -276,7 +278,7 @@ Header CSS
 .header_content{
     background: #fff;
     border-bottom: 3px solid #e4e4e4;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     position: relative;
     z-index: 9;
 }
@@ -378,7 +380,7 @@ Key To Success CSS
     color: #ffffff;
     font-size: 30px;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.35);
 }
@@ -436,7 +438,7 @@ Our Courses CSS
 }
 .sing_course_txt h2{
     font-size: 18px;
-    font-family: 'LatoHeavy', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     margin-bottom: 20px;
 }
@@ -517,7 +519,7 @@ Why Choose Us CSS
 -----------------------------------------------------------*/
 .why_choose_us_txt h1{
     font-size: 32px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     margin: 20px 0 25px;
 }
@@ -573,7 +575,7 @@ Latest Courses CSS
 }
 .sing_lat_course_txt h2{
     font-size: 20px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .sing_lat_course_txt p{
     line-height: 26px;
@@ -693,7 +695,7 @@ Our Students Say CSS
 }
 .testi_studient_txt h3{
     font-size: 16px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .testi_studient_txt h3 span{
     color: #ff3d00;
@@ -754,7 +756,7 @@ Footer CSS
     width: 100%;
     font-size: 53px;
     color: #555555;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 65px;
     height: 65px;
 }
@@ -773,7 +775,7 @@ Footer CSS
 }
 .widget_title{
     font-size: 15px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     background: url(../img/bg_widget_title.png);
     background-position: right bottom;
@@ -998,7 +1000,7 @@ Our Degrees CSS
 }
 .our_degrees_txt h2{
     font-size: 32px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
 }
 .single_our_degree {
@@ -1031,7 +1033,7 @@ Our Degrees CSS
     display: none;
 }
 .sing_degree_txt h2 {
-  font-family: 'LatoHeavy', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
     text-transform: uppercase;
 }
@@ -1076,7 +1078,7 @@ Upcoming Events CSS
 }
 .event_date span{
     font-size: 19px;
-    font-family: 'LatoHeavy', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     line-height: 20px;
 }
@@ -1095,7 +1097,7 @@ Upcoming Events CSS
     color: #fff;
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
 }
 .sing_event_caption a:hover{
@@ -1153,7 +1155,7 @@ Latest From Our Blog CSS
 }
 .blog_post_heading h2 a{
     font-size: 16px;
-    font-family: 'LatoHeavy', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     color: #333333;
 }
@@ -1242,7 +1244,7 @@ Our Principles and Practices CSS
 .sing_prac_content h2{
     margin:0;
     font-size: 33px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
 }
 
@@ -1261,7 +1263,7 @@ Call to Action CSS
 }
 .call2action_txt h2{
     font-size: 27px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     color: #fff;
 }
@@ -1317,7 +1319,7 @@ Courses Page CSS
 .call2action_apply h2{
     font-size: 26px;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .call2action_apply p{
     color: #222222;
@@ -1341,7 +1343,7 @@ Courses Page CSS
     color: #fff;
     font-size: 19px;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .call2action_help p{
     color: #fff;
@@ -1363,14 +1365,14 @@ Courses Page CSS
 }
 .not_found404 h1{
     font-size: 206px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
 }
 .not_found404 h2{
     font-size: 43px;
     color: #ff3d00;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .not_found404 h3{
     color: #555555;
@@ -1405,7 +1407,7 @@ Contact Page CSS
     font-size: 28px;
     font-weight: 700;
     text-align: center;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 25px;
 }
 .contact_info .col-sm-4:nth-child(2) ul {
@@ -1465,7 +1467,7 @@ Contact Page CSS
     font-size: 28px;
     font-weight: 700;
     text-align: center;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .email_form{
     padding-top: 50px;
@@ -1500,7 +1502,7 @@ Contact Page CSS
     border: 0px;
     width: 175px;
     text-transform: uppercase;
-    font-family: 'LatoHeavy', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     border-bottom: 2px solid #bd2d00;
     margin-bottom: 0;
 }
@@ -1566,7 +1568,7 @@ Single Post Page CSS
     position: relative;
     color: #555555;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 34px;
     border-left: 0px;
@@ -1606,7 +1608,7 @@ Single Post Page CSS
 .author_details h2{
     font-size: 18px;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
 }
 .author_details p{
@@ -1638,7 +1640,7 @@ Single Post Page CSS
 .single_post_comment_area > h2, .comment_form > h2{
     font-size: 22px;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 ul.coments li{
     overflow: hidden;
@@ -1661,7 +1663,7 @@ ul.coments li ul li {
 }
 .comment_details h3{
     font-size: 17px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
 }
 .comment_details h4{
@@ -1740,7 +1742,7 @@ Right Sidebar CSS
 .sing_right_widget > h2{
     font-size: 18px;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 27px;
 }
 .lat_news_right > li {
@@ -1891,7 +1893,7 @@ Single Event Page CSS
 }
 .event_post_content > h2{
     font-size: 16px;
-    font-family: 'LatoHeavy', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 25px;
     text-transform: uppercase;
 }
@@ -1904,7 +1906,7 @@ Single Event Page CSS
     border-left: 3px solid #ff3d00;
     font-size: 16px;
     line-height: 32px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
 }
 .event_post_footer ul{
@@ -1919,7 +1921,7 @@ Single Event Page CSS
     color: #fff;
     font-size: 13px;
     text-transform: uppercase;
-    font-family: 'LatoHeavy', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 42px;
     border-bottom: 2px solid #b52b00;
     padding: 0 40px;
@@ -1933,7 +1935,7 @@ Single Event Page CSS
 }
 .event_location h2{
     font-size: 22px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     margin-bottom: 25px;
 }
@@ -1964,7 +1966,7 @@ Stay Connect CSS
 .stay_con_txt h2{
     font-size: 22px;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
 }
 .stay_con_txt p{
@@ -2002,14 +2004,14 @@ About Alumni CSS
 .sing_alumni_txt h2{
     font-size: 20px;
     font-weight: 700;
-    font-family: 'Libre Baskerville', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .sing_alumni_txt p{
     line-height: 26px;
 }
 .sing_alumni_txt a{
     font-size: 12px;
-    font-family: 'LatoHeavy', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: #ff3d00;
     text-decoration: underline;
     text-transform: uppercase;
