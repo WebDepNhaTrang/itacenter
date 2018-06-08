@@ -55,7 +55,7 @@
                             <img src="{{ Voyager::image($value->icon) }}" alt="{{ $value->name }}" title="{{ $value->name }}" class="course_icon">
                             <h2>{{ $value->name }}</h2>
                             <p>{{ $value->description }}</p>
-                            <a href="#">Apply now <i class="fa fa-angle-right"></i></a>
+                            <a href="{{ route('course.single', $value->id) }}">Xem chi tiết <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>

@@ -167,7 +167,7 @@
                                                 <li>
                                                     <img src="{{ Voyager::image($latest_post->image) }}" alt="{{ $latest_post->title }}" width="59">
                                                     <div class="lat_news_right_con">
-                                                        <h3><a href="single-post.html">{{ $latest_post->title }}</a></h3>
+                                                        <h3><a href="{{ route('post.single', ['slug' => $latest_post->slug]) }}">{{ $latest_post->title }}</a></h3>
                                                         <h4>{{ $post->created_at->format('M d, Y') }}</h4>
                                                     </div>
                                                 </li>
