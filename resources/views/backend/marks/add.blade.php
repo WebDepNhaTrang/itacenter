@@ -68,7 +68,6 @@
                                     <div class="col-md-12">
                                         <label for="mssv">There are no students in this class!</label>
                                     </div>
-                                    
                                 </div>
                             @endif
                             

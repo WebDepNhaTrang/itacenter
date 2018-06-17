@@ -29,9 +29,14 @@ Route::group(['prefix' => 'admin'], function () {
         'as'    => 'backend.mark.postAdd'
     ]);
 
+    // Excel For Import Students
     Route::get('/excel/import-students', [
         'uses'  => 'Backend\ExcelController@getImportStudents',
         'as'    => 'backend.excel.getImportStudents'
+    ]);
+    Route::post('/excel/review-students', [
+        'uses'  => 'Backend\ExcelController@postReviewStudents',
+        'as'    => 'backend.excel.postReviewStudents'
     ]);
 });
 
