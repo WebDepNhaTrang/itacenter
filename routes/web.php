@@ -38,6 +38,10 @@ Route::group(['prefix' => 'admin'], function () {
         'uses'  => 'Backend\ExcelController@postReviewStudents',
         'as'    => 'backend.excel.postReviewStudents'
     ]);
+    Route::post('/excel/import-students', [
+        'uses'  => 'Backend\ExcelController@postImportStudents',
+        'as'    => 'backend.excel.postImportStudents'
+    ]);
 });
 
 /*

@@ -45,7 +45,7 @@ if(! function_exists('getAllPosts')){
  * @order_by: asc/desc
  * @limit: number
  */
-if(! function_exists('getLatestPosts')){
+if(! function_exists('getLatestPosts')){
     function getLatestPosts($select='*', $cat_id, $order_col, $order_by='asc', $limit = 4){
         $item = TCG\Voyager\Models\Post::select($select)
                     ->where(["status" => "PUBLISHED", "category_id" => $cat_id])
@@ -63,7 +63,7 @@ if(! function_exists('getLatestPosts')){
  * @order_by: asc/desc
  * @limit: number
  */
-if(! function_exists('getLatestCourses')){
+if(! function_exists('getLatestCourses')){
     function getLatestCourses($select='*', $order_col, $order_by='asc', $limit = 4){
         $item = App\CoursesFront::select($select)
                     ->orderBy($order_col, $order_by)
