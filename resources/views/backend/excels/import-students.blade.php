@@ -109,20 +109,47 @@
                             html +='</table>';
 
                             $(".show-review").append(html);
-            
                         }
                     }});
             });
 
             // Ajax Import Students
             $('#import-btn').click(function(e){
+
                 e.preventDefault();
+
+                var uf = $('#form-import');
+                var fd = new FormData(uf[0]);
+
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                     }
                 });
-                console.log('import');
+
+                jQuery.ajax({
+                    url: "{{ route('backend.excel.postImportStudents') }}",
+                    method: 'post',
+                    data: fd,
+                    contentType: false,
+                    processData:false,
+                    success: function(data){
+                        // console.log(data);
+
+                        var html = "";
+                        $(".show-review").html("");
+                        if(data.result == 'false'){
+
+                            html = "<h6>"+data.message+"</h6>";
+                            $(".show-review").append(html);
+
+                        }else if(data.result == 'true'){
+
+                            html = "<h6>"+data.message+"</h6>";
+                            $(".show-review").append(html);
+                        
+                        }
+                    }});
             });
         });
 

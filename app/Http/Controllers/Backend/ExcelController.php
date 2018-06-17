@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Excel;
-use Illuminate\Support\Facades\Validator;
+use App\Student;
+use Carbon\Carbon;
 
 class ExcelController extends Controller
 {
@@ -30,6 +31,58 @@ class ExcelController extends Controller
                     'message' => 'Review Import Students',
                     'data'    => $rows
                 ]);
+
+            }else{
+                return response()
+                ->json([
+                    'result' => 'false',
+                    'message' => 'Upload file is not formatted correctly!'
+                ]);
+            }
+
+        }else{
+            return response()
+            ->json([
+                'result' => 'false',
+                'message' => 'File import is empty!'
+            ]);
+        }
+    }
+
+    public function postImportStudents(Request $request){
+        if($request->hasFile('students_file')){
+            
+            $extension = $request->students_file->extension();
+
+            if ($extension == 'xlsx' || $extension == 'xls' || $extension == 'csv') {
+
+                $path = $request->students_file->path();
+                $rows = Excel::load($path)->get();
+
+                // dd($rows);
+
+                foreach ($rows as $key => $value) {
+                    // print_r($value);
+                    $student_list[] = ['mssv' => $value->student_code, 'fullname' => $value->fullname, 'birthday' => $value->birthday, 'regular_class_id' => $value->regular_class, 'has_certificate' => $value->has_certificate, 'created_at' => Carbon::now()];
+                }
+
+                
+
+                // dd($dups->get());
+                if(!empty($student_list)){
+                    Student::insertIgnore($student_list);
+                    return response()
+                    ->json([
+                        'result' => 'true',
+                        'message' => 'Import Students Succesfully!!!'
+                    ]);
+                }else{
+                    return response()
+                    ->json([
+                        'result' => 'false',
+                        'message' => 'File upload is empty!'
+                    ]);
+                }
 
             }else{
                 return response()
