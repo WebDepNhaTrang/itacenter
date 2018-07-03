@@ -76,4 +76,62 @@ class StatisticController extends Controller
 
         return $html;
     }
+
+    public function postStatisticByCenterClass(Request $request){
+
+        $center_class_id = $request->input('center_class_id');
+        if($center_class_id){
+
+            $students_of_class = StudentsCenterClass::select('*')->where('center_class_id', $center_class_id)->get();
+
+            if(!$students_of_class->isEmpty()){
+
+                $html = $this->renderStatisticByCenterClass($students_of_class);
+                
+                return response()
+                ->json([
+                    'result' => 'true',
+                    'message' => 'Statistic By Year',
+                    'data'    => $html
+                ]);
+            }else{
+                return response()
+                ->json([
+                    'result' => 'false',
+                    'message' => 'Empty Data',
+                    'data'    => null
+                ]);
+            }
+        }else{
+            return response()
+                ->json([
+                    'result' => 'false',
+                    'message' => 'Empty Data',
+                    'data'    => null
+                ]);
+        }   
+    }
+
+    protected function renderStatisticByCenterClass($data){
+        $html ='<table class="table">';
+        $html.='    <thead>';
+        $html.='    <tr>';
+        $html.='        <th>Student</th>';
+        $html.='        <th>Students(>=5)</th>';
+        $html.='        <th>Students(<5)</th>';
+        $html.='    </tr>';
+        $html.='    </thead>';
+        $html.='    <tbody>';
+        foreach($data as $value){
+            $html.='    <tr>';
+            $html.='        <td>'.$value['id'].'</td>';
+            $html.='        <td style="color: green;">'.$value['id'].'</td>';
+            $html.='        <td style="color: red;">'.$value['id'].'</td>';
+            $html.='    </tr>';
+        }   
+        $html.='    </tbody>';
+        $html.='</table>';
+
+        return $html;
+    }
 }

@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group" id="center_class_input">
                                 <label for="center_class_input">Center Class:</label>
-                                <select class="form-control select2" name="center_class_input">
+                                <select id="center_class_input" class="form-control select2" name="center_class_input">
                                     @foreach($center_classes as $center_class)
                                     <option value="{{ $center_class->id }}">{{ $center_class->class_code }}</option>
                                     @endforeach
@@ -107,7 +107,22 @@
                     });
                 // Thống kê theo lớp trung tâm
                 }else if( $("#statistic").val() == 'center_class' ){
-                    console.log('center_class');
+                    var center_class_id = $("#center_class_input option:selected").val();
+                    console.log(center_class_id);
+                    $(".show-review").html("<h3>Loading...</h3>");
+                    $.ajax({
+                        method:'post',
+                        url:"{{ route('backend.statistic.by_center_class') }}",
+                        data:{ 'center_class_id': center_class_id },
+                        success:function(data){
+                            
+                            if(data.result == 'true'){
+                                $(".show-review").html(data.data)
+                            }else{
+                                $(".show-review").html("<h3>"+data.message+"</h3>")
+                            }
+                        }
+                    });
                 }
 
             });
