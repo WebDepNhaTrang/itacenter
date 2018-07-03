@@ -42,6 +42,12 @@ Route::group(['prefix' => 'admin'], function () {
         'uses'  => 'Backend\ExcelController@postImportStudents',
         'as'    => 'backend.excel.postImportStudents'
     ]);
+
+    // Statics Students
+    Route::get('/static', [
+        'uses'  => 'Backend\StaticController@index',
+        'as'    => 'backend.static.index'
+    ]);
 });
 
 /*
