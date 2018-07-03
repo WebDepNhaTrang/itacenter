@@ -108,7 +108,7 @@
                 // Thống kê theo lớp trung tâm
                 }else if( $("#statistic").val() == 'center_class' ){
                     var center_class_id = $("#center_class_input option:selected").val();
-                    console.log(center_class_id);
+                    
                     $(".show-review").html("<h3>Loading...</h3>");
                     $.ajax({
                         method:'post',

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\CenterClass;
 use App\StudentsCenterClass;
+use App\Student;
 
 class StatisticController extends Controller
 {
@@ -67,7 +68,7 @@ class StatisticController extends Controller
                                 ->where('test_score', '<', '5')->count();
             $html.='    <tr>';
             $html.='        <td>'.$value['class_code'].'</td>';
-            $html.='        <td style="color: green;">'.$students_over.'</td>';
+            $html.='        <td style="color: blue;">'.$students_over.'</td>';
             $html.='        <td style="color: red;">'.$students_under.'</td>';
             $html.='    </tr>';
         }   
@@ -116,22 +117,35 @@ class StatisticController extends Controller
         $html ='<table class="table">';
         $html.='    <thead>';
         $html.='    <tr>';
-        $html.='        <th>Student</th>';
-        $html.='        <th>Students(>=5)</th>';
-        $html.='        <th>Students(<5)</th>';
+        $html.='        <th>Fullname</th>';
+        $html.='        <th>Student Code</th>';
+        $html.='        <th>Test Score</th>';
         $html.='    </tr>';
         $html.='    </thead>';
         $html.='    <tbody>';
+        $student_pass = 0;
+        $student_failed = 0;
         foreach($data as $value){
+            $student_current = Student::findOrFail($value['student_id']);
             $html.='    <tr>';
-            $html.='        <td>'.$value['id'].'</td>';
-            $html.='        <td style="color: green;">'.$value['id'].'</td>';
-            $html.='        <td style="color: red;">'.$value['id'].'</td>';
+            $html.='        <td>'.$student_current->fullname.'</td>';
+            $html.='        <td>'.$student_current->mssv.'</td>';
+            if($value['test_score'] >= 5){
+                $class_color = 'style="color: blue;"';
+                $student_pass++;
+            }else{
+                $class_color = 'style="color: red;"';
+                $student_failed++;
+            }
+            $html.='        <td '.$class_color.'>'.$value['test_score'].'</td>';
             $html.='    </tr>';
         }   
         $html.='    </tbody>';
         $html.='</table>';
-
+        $html.='<div class="col-md-12" style="margin-top: 10px;">';
+        $html.='<p style="color: blue;">The number of students passed: '.$student_pass.'</p>';
+        $html.='<p style="color: red;">The number of students failed: '.$student_failed.'</p>';
+        $html.='</div>';
         return $html;
     }
 }
