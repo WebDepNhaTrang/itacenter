@@ -4,12 +4,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @stop
 
-@section('page_title', __('Statics'))
+@section('page_title', __('Statistic'))
 
 @section('page_header')
     <h1 class="page-title">
         <i class="icon voyager-pie-chart"></i>
-        Statics
+        Statistic
     </h1>
 @stop
 
@@ -21,14 +21,14 @@
                 <div class="panel panel-bordered">
                     <!-- form start -->
                     
-                    <form id="form-statics" action="#" method="post" enctype="multipart/form-data">
+                    <form id="form-statistic" action="#" method="post" enctype="multipart/form-data">
                         <!-- CSRF TOKEN -->
                         {{ csrf_field() }}
 
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="static_by">Static By:</label>
-                                <select class="form-control" name="static_by" id="static_by">
+                                <label for="statistic">Static By:</label>
+                                <select class="form-control" name="statistic" id="statistic">
                                     <option value="year" selected>Year</option>
                                     <option value="center_class">Center Class</option>
                                 </select>
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary" id="import-btn">{{ __('Submit') }}</button>
+                            <button type="submit" class="btn btn-primary" id="statistic-btn">{{ __('Submit') }}</button>
                         </div>
                     </form>
                 </div>
@@ -67,7 +67,7 @@
         $('document').ready(function () {
             $("#center_class_input").hide();
 
-            $('#static_by').on('change', function() {
+            $('#statistic').on('change', function() {
                 if(this.value == 'year'){
                     $("#year_input").show();
                     $("#center_class_input").hide();
@@ -76,7 +76,41 @@
                     $("#year_input").hide();
                     $("#center_class_input").show();
                 }
-            })
+            });
+
+            $('#statistic-btn').click(function(e){
+
+                e.preventDefault();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                    }
+                });
+                
+                // Thống kê theo năm học
+                if( $("#statistic").val() == 'year' ){
+                    var year = $("input[name='year_input']").val();
+                        $(".show-review").html("<h3>Loading...</h3>");
+                    $.ajax({
+                        method:'post',
+                        url:"{{ route('backend.statistic.by_year') }}",
+                        data:{ 'year': year },
+                        success:function(data){
+                            
+                            if(data.result == 'true'){
+                                $(".show-review").html(data.data)
+                            }else{
+                                $(".show-review").html("<h3>"+data.message+"</h3>")
+                            }
+                        }
+                    });
+                // Thống kê theo lớp trung tâm
+                }else if( $("#statistic").val() == 'center_class' ){
+                    console.log('center_class');
+                }
+
+            });
         });
         
     </script>

@@ -43,10 +43,15 @@ Route::group(['prefix' => 'admin'], function () {
         'as'    => 'backend.excel.postImportStudents'
     ]);
 
-    // Statics Students
-    Route::get('/static', [
-        'uses'  => 'Backend\StaticController@index',
-        'as'    => 'backend.static.index'
+    // Statistic Students
+    Route::get('/statistic', [
+        'uses'  => 'Backend\StatisticController@index',
+        'as'    => 'backend.statistic.index'
+    ]);
+    // Statistic By Year
+    Route::post('/statistic-by-year', [
+        'uses'  => 'Backend\StatisticController@postStatisticByYear',
+        'as'    => 'backend.statistic.by_year'
     ]);
 });
 
