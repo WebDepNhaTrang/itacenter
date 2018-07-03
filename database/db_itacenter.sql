@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th7 03, 2018 lúc 07:21 AM
--- Phiên bản máy phục vụ: 10.1.30-MariaDB
--- Phiên bản PHP: 7.2.2
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 03, 2018 lúc 12:04 PM
+-- Phiên bản máy phục vụ: 10.1.33-MariaDB
+-- Phiên bản PHP: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -359,14 +359,14 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (19, 2, 'Thông Báo', '', '_self', NULL, '#000000', NULL, 14, '2018-05-02 09:42:23', '2018-05-02 09:42:23', 'frontend.pages.notification', NULL),
 (20, 2, 'Liên Hệ', '', '_self', NULL, '#000000', NULL, 15, '2018-05-02 09:42:43', '2018-05-02 09:42:43', 'frontend.pages.contact', NULL),
 (22, 1, 'Courses', '', '_self', 'voyager-study', '#000000', 23, 1, '2018-05-22 00:59:03', '2018-05-22 04:02:31', 'voyager.courses-fronts.index', 'null'),
-(23, 1, 'Custom Site', '', '_self', 'voyager-tv', '#000000', NULL, 8, '2018-05-22 04:01:16', '2018-05-25 08:08:35', NULL, ''),
+(23, 1, 'Custom Site', '', '_self', 'voyager-tv', '#000000', NULL, 8, '2018-05-22 04:01:16', '2018-07-02 23:36:24', NULL, ''),
 (24, 1, 'Services', '', '_self', 'voyager-brush', '#000000', 23, 2, '2018-05-23 02:14:37', '2018-05-23 02:15:10', 'voyager.services-fronts.index', 'null'),
 (25, 1, 'Testimonials', '', '_self', 'voyager-bubble-hear', '#000000', 23, 3, '2018-05-23 02:33:03', '2018-05-23 02:33:19', 'voyager.testimonials-fronts.index', 'null'),
 (26, 1, 'Center Data', '', '_self', 'voyager-data', '#000000', NULL, 9, '2018-06-02 21:32:22', '2018-06-04 22:14:52', NULL, ''),
 (27, 1, 'Students', '', '_self', 'voyager-study', NULL, 26, 1, '2018-06-02 22:44:33', '2018-06-04 22:24:02', 'voyager.students.index', NULL),
 (28, 1, 'Regular Classes', '', '_self', 'voyager-home', '#000000', 26, 4, '2018-06-02 22:47:40', '2018-06-30 20:48:08', 'voyager.regular-classes.index', 'null'),
 (29, 1, 'Center Classes', '', '_self', 'voyager-company', '#000000', 26, 2, '2018-06-04 22:23:31', '2018-06-04 22:24:44', 'voyager.center-classes.index', 'null'),
-(30, 1, 'Statistic', '', '_self', 'voyager-pie-chart', '#000000', NULL, 10, '2018-06-30 19:53:34', '2018-06-30 20:43:35', 'backend.static.index', 'null'),
+(30, 1, 'Statistic', '', '_self', 'voyager-pie-chart', '#000000', NULL, 10, '2018-06-30 19:53:34', '2018-07-03 00:38:41', 'backend.statistic.index', 'null'),
 (32, 1, 'Center Class Types', '', '_self', 'voyager-study', NULL, 26, 3, '2018-06-30 20:19:46', '2018-06-30 20:48:08', 'voyager.center-class-types.index', NULL);
 
 -- --------------------------------------------------------
@@ -864,15 +864,15 @@ CREATE TABLE `students_center_classes` (
 --
 
 INSERT INTO `students_center_classes` (`id`, `student_id`, `center_class_id`, `created_at`, `updated_at`, `test_score`) VALUES
-(10, 20, 4, NULL, NULL, NULL),
-(11, 21, 4, NULL, NULL, NULL),
-(12, 22, 4, NULL, NULL, NULL),
-(13, 20, 3, NULL, '2018-06-17 09:21:18', 0),
-(14, 21, 3, NULL, '2018-06-17 09:21:18', 0),
-(15, 22, 3, NULL, '2018-06-17 09:21:18', 0),
-(16, 23, 3, NULL, '2018-06-17 09:21:18', 0),
-(17, 24, 3, NULL, '2018-06-17 09:21:19', 0),
-(18, 25, 3, NULL, '2018-06-17 09:21:19', 0);
+(10, 20, 4, NULL, '2018-07-03 01:47:49', 1),
+(11, 21, 4, NULL, '2018-07-03 01:47:49', 2),
+(12, 22, 4, NULL, '2018-07-03 01:47:49', 8),
+(13, 20, 3, NULL, '2018-07-03 01:48:12', 3),
+(14, 21, 3, NULL, '2018-07-03 01:48:12', 8),
+(15, 22, 3, NULL, '2018-07-03 01:48:12', 5),
+(16, 23, 3, NULL, '2018-07-03 01:48:12', 6),
+(17, 24, 3, NULL, '2018-07-03 01:48:12', 1),
+(18, 25, 3, NULL, '2018-07-03 01:48:12', 9);
 
 -- --------------------------------------------------------
 
