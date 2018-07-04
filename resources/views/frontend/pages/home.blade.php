@@ -134,9 +134,8 @@
                                 <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
                             </div>
                             <div class="sing_lat_course_txt">
-                                <h2>{{ $value->name }}</h2>
+                                <a href="{{ route('service.single', $value->id) }}"><h2>{{ $value->name }}</h2></a>
                                 <p>{{ $value->description }}</p>
-                                
                             </div>
                         </div>
                     @endforeach
