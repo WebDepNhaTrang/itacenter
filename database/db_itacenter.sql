@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 03, 2018 lúc 12:04 PM
--- Phiên bản máy phục vụ: 10.1.33-MariaDB
--- Phiên bản PHP: 7.2.6
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th7 04, 2018 lúc 05:18 PM
+-- Phiên bản máy phục vụ: 10.1.30-MariaDB
+-- Phiên bản PHP: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -112,12 +112,12 @@ CREATE TABLE `courses_fronts` (
 --
 
 INSERT INTO `courses_fronts` (`id`, `name`, `description`, `image`, `icon`, `created_at`, `updated_at`, `body`) VALUES
-(1, 'THIẾT KẾ THỜI TRANG NHÍ', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/6PiO9M6CqU8iSOygzxxR.png', 'courses-front/May2018/oxdXhJ1L4pRu1udtOuUd.png', '2018-05-21 23:22:30', '2018-05-21 23:22:30', NULL),
-(2, 'MỸ THUẬT CƠ BẢN', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/a8v4pMF8ZlmKcrwjgZwY.png', 'courses-front/May2018/2pecldAGkE7AJdFGpFvB.png', '2018-05-22 00:51:08', '2018-05-22 00:51:08', NULL),
-(3, 'THIẾT KẾ WEBSITE', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/k1vs2GWVZOlrxa53nsqw.png', 'courses-front/May2018/NCIEBU8hwELJuZ5npnl2.png', '2018-05-22 00:52:12', '2018-05-22 00:52:12', NULL),
-(4, 'LẬP TRÌNH IOS', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/rXYtBNNaPfQ9OuQiztPF.png', 'courses-front/May2018/35dhU22kZ1YdxbLy6z4b.png', '2018-05-22 00:52:57', '2018-05-22 00:52:57', NULL),
-(5, 'LẬP TRÌNH ANDROID', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/4o5KJAdtDsNTp65vBs7L.png', 'courses-front/May2018/B57NAF1lywfB6eNPKdjH.png', '2018-05-22 00:53:49', '2018-05-22 00:53:49', NULL),
-(6, 'CHỨNG CHỈ MOS', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/W0LODNTLUZe0TZZZExLS.png', 'courses-front/May2018/eLAFeZnN2LWY8ErO4XPu.png', '2018-05-22 00:54:00', '2018-05-31 23:05:23', '<p>Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.</p>');
+(1, 'THIẾT KẾ THỜI TRANG NHÍ', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/6PiO9M6CqU8iSOygzxxR.png', 'courses-front/May2018/oxdXhJ1L4pRu1udtOuUd.png', '2018-05-21 23:22:00', '2018-07-04 08:08:10', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'),
+(2, 'MỸ THUẬT CƠ BẢN', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/a8v4pMF8ZlmKcrwjgZwY.png', 'courses-front/May2018/2pecldAGkE7AJdFGpFvB.png', '2018-05-22 00:51:00', '2018-07-04 08:08:01', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'),
+(3, 'THIẾT KẾ WEBSITE', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/k1vs2GWVZOlrxa53nsqw.png', 'courses-front/May2018/NCIEBU8hwELJuZ5npnl2.png', '2018-05-22 00:52:00', '2018-07-04 08:07:45', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'),
+(4, 'LẬP TRÌNH IOS', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/rXYtBNNaPfQ9OuQiztPF.png', 'courses-front/May2018/35dhU22kZ1YdxbLy6z4b.png', '2018-05-22 00:52:00', '2018-07-04 08:07:36', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'),
+(5, 'LẬP TRÌNH ANDROID', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/4o5KJAdtDsNTp65vBs7L.png', 'courses-front/May2018/B57NAF1lywfB6eNPKdjH.png', '2018-05-22 00:53:00', '2018-07-04 08:07:30', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'),
+(6, 'CHỨNG CHỈ MOS', 'Till the one day when the lady met this fellow and they knew it was much more than a hunch. It\'s time to put on makeup.', 'courses-front/May2018/W0LODNTLUZe0TZZZExLS.png', 'courses-front/May2018/eLAFeZnN2LWY8ErO4XPu.png', '2018-05-22 00:54:00', '2018-07-04 08:07:19', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>');
 
 -- --------------------------------------------------------
 
@@ -203,17 +203,17 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, '{}', 10),
 (63, 8, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
 (64, 8, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(65, 8, 'description', 'text_area', 'Description', 1, 1, 1, 1, 1, 1, NULL, 3),
-(66, 8, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, NULL, 4),
-(67, 8, 'icon', 'image', 'Icon', 0, 1, 1, 1, 1, 1, NULL, 5),
-(68, 8, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 6),
-(69, 8, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
+(65, 8, 'description', 'text_area', 'Description', 1, 1, 1, 1, 1, 1, NULL, 5),
+(66, 8, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, NULL, 3),
+(67, 8, 'icon', 'image', 'Icon', 0, 1, 1, 1, 1, 1, NULL, 4),
+(68, 8, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 7),
+(69, 8, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 8),
 (70, 9, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
 (71, 9, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(72, 9, 'description', 'text_area', 'Description', 1, 1, 1, 1, 1, 1, NULL, 3),
-(73, 9, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, NULL, 4),
-(74, 9, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 5),
-(75, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 6),
+(72, 9, 'description', 'text_area', 'Description', 1, 1, 1, 1, 1, 1, NULL, 4),
+(73, 9, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, NULL, 3),
+(74, 9, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 6),
+(75, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
 (76, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
 (77, 10, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
 (78, 10, 'testimonial', 'text_area', 'Testimonial', 1, 1, 1, 1, 1, 1, NULL, 3),
@@ -221,7 +221,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (80, 10, 'job', 'text', 'Job', 0, 1, 1, 1, 1, 1, NULL, 5),
 (81, 10, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 6),
 (82, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
-(83, 8, 'body', 'rich_text_box', 'Body', 0, 1, 1, 1, 1, 1, NULL, 8),
+(83, 8, 'body', 'rich_text_box', 'Body', 0, 0, 1, 1, 1, 1, NULL, 6),
 (84, 11, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
 (85, 11, 'mssv', 'text', 'Student Code', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"unique:students,mssv\"}}', 2),
 (86, 11, 'fullname', 'text', 'Fullname', 1, 1, 1, 1, 1, 1, NULL, 3),
@@ -246,7 +246,8 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (112, 16, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 3),
 (113, 16, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
 (114, 13, 'regular_class_type_id', 'text', 'Class Type', 1, 1, 1, 1, 1, 1, NULL, 8),
-(115, 13, 'center_class_belongsto_center_class_type_relationship', 'relationship', 'Class Type', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\CenterClassType\",\"table\":\"center_class_types\",\"type\":\"belongsTo\",\"column\":\"regular_class_type_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3);
+(115, 13, 'center_class_belongsto_center_class_type_relationship', 'relationship', 'Class Type', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\CenterClassType\",\"table\":\"center_class_types\",\"type\":\"belongsTo\",\"column\":\"regular_class_type_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3),
+(116, 9, 'body', 'rich_text_box', 'Body', 0, 0, 1, 1, 1, 1, NULL, 5);
 
 -- --------------------------------------------------------
 
@@ -359,14 +360,14 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (19, 2, 'Thông Báo', '', '_self', NULL, '#000000', NULL, 14, '2018-05-02 09:42:23', '2018-05-02 09:42:23', 'frontend.pages.notification', NULL),
 (20, 2, 'Liên Hệ', '', '_self', NULL, '#000000', NULL, 15, '2018-05-02 09:42:43', '2018-05-02 09:42:43', 'frontend.pages.contact', NULL),
 (22, 1, 'Courses', '', '_self', 'voyager-study', '#000000', 23, 1, '2018-05-22 00:59:03', '2018-05-22 04:02:31', 'voyager.courses-fronts.index', 'null'),
-(23, 1, 'Custom Site', '', '_self', 'voyager-tv', '#000000', NULL, 8, '2018-05-22 04:01:16', '2018-07-02 23:36:24', NULL, ''),
+(23, 1, 'Custom Site', '', '_self', 'voyager-tv', '#000000', NULL, 8, '2018-05-22 04:01:16', '2018-05-25 08:08:35', NULL, ''),
 (24, 1, 'Services', '', '_self', 'voyager-brush', '#000000', 23, 2, '2018-05-23 02:14:37', '2018-05-23 02:15:10', 'voyager.services-fronts.index', 'null'),
 (25, 1, 'Testimonials', '', '_self', 'voyager-bubble-hear', '#000000', 23, 3, '2018-05-23 02:33:03', '2018-05-23 02:33:19', 'voyager.testimonials-fronts.index', 'null'),
 (26, 1, 'Center Data', '', '_self', 'voyager-data', '#000000', NULL, 9, '2018-06-02 21:32:22', '2018-06-04 22:14:52', NULL, ''),
 (27, 1, 'Students', '', '_self', 'voyager-study', NULL, 26, 1, '2018-06-02 22:44:33', '2018-06-04 22:24:02', 'voyager.students.index', NULL),
 (28, 1, 'Regular Classes', '', '_self', 'voyager-home', '#000000', 26, 4, '2018-06-02 22:47:40', '2018-06-30 20:48:08', 'voyager.regular-classes.index', 'null'),
 (29, 1, 'Center Classes', '', '_self', 'voyager-company', '#000000', 26, 2, '2018-06-04 22:23:31', '2018-06-04 22:24:44', 'voyager.center-classes.index', 'null'),
-(30, 1, 'Statistic', '', '_self', 'voyager-pie-chart', '#000000', NULL, 10, '2018-06-30 19:53:34', '2018-07-03 00:38:41', 'backend.statistic.index', 'null'),
+(30, 1, 'Statistic', '', '_self', 'voyager-pie-chart', '#000000', NULL, 10, '2018-06-30 19:53:34', '2018-07-03 09:21:54', 'backend.statistic.index', 'null'),
 (32, 1, 'Center Class Types', '', '_self', 'voyager-study', NULL, 26, 3, '2018-06-30 20:19:46', '2018-06-30 20:48:08', 'voyager.center-class-types.index', NULL);
 
 -- --------------------------------------------------------
@@ -722,17 +723,18 @@ CREATE TABLE `services_fronts` (
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(254) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `body` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `services_fronts`
 --
 
-INSERT INTO `services_fronts` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Thiết kế website trọn gói', 'Here\'s the story of a lovely lady who was bringing up three very lovely girls.', 'services-fronts/May2018/4rx79U8I5Jn2e7IadX9I.jpg', '2018-05-23 02:17:02', '2018-05-23 02:17:02'),
-(2, 'Tư vấn thiết kế nội thất', 'Here\'s the story of a lovely lady who was bringing up three very lovely girls.', 'services-fronts/May2018/gD3QHgdRX7rEcbiEryAG.jpg', '2018-05-23 02:17:28', '2018-05-23 02:17:28'),
-(3, 'Cung cấp mặt hàng mỹ thuật', 'Here\'s the story of a lovely lady who was bringing up three very lovely girls.', 'services-fronts/May2018/ZBIjx9BU0k3SBdyKYwrW.jpg', '2018-05-23 02:18:15', '2018-05-23 02:18:15');
+INSERT INTO `services_fronts` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`, `body`) VALUES
+(1, 'Thiết kế website trọn gói', 'Here\'s the story of a lovely lady who was bringing up three very lovely girls.', 'services-fronts/May2018/4rx79U8I5Jn2e7IadX9I.jpg', '2018-05-23 02:17:00', '2018-07-04 08:14:43', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'),
+(2, 'Tư vấn thiết kế nội thất', 'Here\'s the story of a lovely lady who was bringing up three very lovely girls.', 'services-fronts/May2018/gD3QHgdRX7rEcbiEryAG.jpg', '2018-05-23 02:17:00', '2018-07-04 08:12:51', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'),
+(3, 'Cung cấp mặt hàng mỹ thuật', 'Here\'s the story of a lovely lady who was bringing up three very lovely girls.', 'services-fronts/May2018/ZBIjx9BU0k3SBdyKYwrW.jpg', '2018-05-23 02:18:00', '2018-07-04 08:12:43', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>');
 
 -- --------------------------------------------------------
 
@@ -864,15 +866,15 @@ CREATE TABLE `students_center_classes` (
 --
 
 INSERT INTO `students_center_classes` (`id`, `student_id`, `center_class_id`, `created_at`, `updated_at`, `test_score`) VALUES
-(10, 20, 4, NULL, '2018-07-03 01:47:49', 1),
-(11, 21, 4, NULL, '2018-07-03 01:47:49', 2),
-(12, 22, 4, NULL, '2018-07-03 01:47:49', 8),
-(13, 20, 3, NULL, '2018-07-03 01:48:12', 3),
-(14, 21, 3, NULL, '2018-07-03 01:48:12', 8),
-(15, 22, 3, NULL, '2018-07-03 01:48:12', 5),
-(16, 23, 3, NULL, '2018-07-03 01:48:12', 6),
-(17, 24, 3, NULL, '2018-07-03 01:48:12', 1),
-(18, 25, 3, NULL, '2018-07-03 01:48:12', 9);
+(10, 20, 4, NULL, '2018-07-03 09:22:29', 2),
+(11, 21, 4, NULL, '2018-07-03 09:22:29', 4),
+(12, 22, 4, NULL, '2018-07-03 09:22:29', 7),
+(13, 20, 3, NULL, '2018-07-03 09:22:43', 4),
+(14, 21, 3, NULL, '2018-07-03 09:22:43', 5),
+(15, 22, 3, NULL, '2018-07-03 09:22:43', 9),
+(16, 23, 3, NULL, '2018-07-03 09:22:43', 7),
+(17, 24, 3, NULL, '2018-07-03 09:22:43', 4),
+(18, 25, 3, NULL, '2018-07-03 09:22:43', 3);
 
 -- --------------------------------------------------------
 
@@ -1198,7 +1200,7 @@ ALTER TABLE `courses_fronts`
 -- AUTO_INCREMENT cho bảng `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT cho bảng `data_types`
