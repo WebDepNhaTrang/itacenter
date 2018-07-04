@@ -83,6 +83,12 @@ Route::get('/khoa-hoc/{id}', [
     'as'    => 'course.single'
 ]);
 
+// Services Detail
+Route::get('/dich-vu/{id}', [
+    'uses'  => 'FrontendController@singleService',
+    'as'    => 'service.single'
+]);
+
 Route::get('/tin-tuc', function (){
     return view('frontend.pages.news');
 })->name('frontend.pages.news');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use TCG\Voyager\Models\Post;
 use App\CoursesFront;
+use App\ServicesFront;
 
 class FrontendController extends Controller
 {
@@ -24,5 +25,11 @@ class FrontendController extends Controller
         $course = CoursesFront::findOrFail($id);
 
         return view('frontend.single-course')->with('course', $course);
+    }
+
+    public function singleService($id){
+        $service = ServicesFront::findOrFail($id);
+
+        return view('frontend.single-service')->with('service', $service);
     }
 }
