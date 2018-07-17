@@ -68,7 +68,7 @@
                             <div class="all_right_widgets">
                                 
                                 <div class="sing_right_widget">
-                                        <h2>Khóa Học Mới Nhất</h2>
+                                        <h2>Dịch Vụ Của Chúng Tôi</h2>
                                     <div class="sing_right_widg_content">
                                         <ul class="lat_news_right">
                                             <?php
