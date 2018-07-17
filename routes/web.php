@@ -83,6 +83,10 @@ Route::get('/khoa-hoc/{id}', [
     'as'    => 'course.single'
 ]);
 
+Route::get('/dich-vu', function (){
+    return view('frontend.pages.services');
+})->name('frontend.pages.services');
+
 // Services Detail
 Route::get('/dich-vu/{id}', [
     'uses'  => 'FrontendController@singleService',
