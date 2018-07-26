@@ -9,6 +9,14 @@
                 <div class="col-md-3 col-sm-2">
                     <div class="logo">
                         <a href="{{ url('/') }}"><img src="{{ Voyager::image(setting('site.logo')) }}" alt="ITA Center">ITA<span> Center</span></a>                           
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>       
                     </div>
                 </div>                                    
                 <div class="col-md-9 col-sm-10 nav_area">
