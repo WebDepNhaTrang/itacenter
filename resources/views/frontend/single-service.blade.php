@@ -40,7 +40,7 @@
                         <div class="blog_post_photo">
                             <img src="{{ Voyager::image($service->image) }}" alt="{{ $service->name }}">
                             <div class="blog_post_date_caption">
-                                <span>{{ $service->created_at->format('d M') }}</span>
+                                <span>{{ $service->created_at->format('d M') }}</span>
                             </div>
                         </div>
                         <div class="blog_post_txt">
