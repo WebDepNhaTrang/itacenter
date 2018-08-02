@@ -1,6 +1,14 @@
 @extends('frontend.layouts.master')
 
-@section('title', $post->title)
+@section('title', $post->seo_title)
+@section('description', $post->meta_description)
+@section('keywords', $post->meta_keywords)
+
+@section('fb_url', route('post.single', ['slug' => $post->slug]))
+@section('fb_type', 'article')
+@section('fb_title', $post->seo_title)
+@section('fb_des', $post->meta_description)
+@section('fb_img', Voyager::image($post->image))
 
 @section('content')
     <section class="breadcrumb_area">

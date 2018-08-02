@@ -1,6 +1,13 @@
 @extends('frontend.layouts.master')
 
 @section('title', 'Thông Báo')
+@section('description', 'Trung Tâm Công Nghệ Thông Tin & Mỹ Thuật Ứng Dụng - Trường Đại Học Khánh Hòa')
+
+@section('fb_url', route('frontend.pages.notification'))
+@section('fb_type', 'website')
+@section('fb_title', 'Trung Tâm Công Nghệ Thông Tin & Mỹ Thuật Ứng Dụng - Trường Đại Học Khánh Hòa')
+@section('fb_des', 'Trung Tâm Công Nghệ Thông Tin & Mỹ Thuật Ứng Dụng - Trường Đại Học Khánh Hòa')
+@section('fb_img', Voyager::image(setting('site.logo')))
 
 @section('content')
     <section class="breadcrumb_area">

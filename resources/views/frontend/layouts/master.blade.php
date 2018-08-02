@@ -14,7 +14,26 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>@yield('title') | TT CNTT&MTUD</title>
+        <title>@yield('title') | Trung Tâm CNTT & MTUD</title>
+
+        <meta name="description" content="@yield('description')">
+        <meta name="keywords" content="Trung Tâm CNTT ĐH KH, Đại Học KHánh Hòa, @yield('keywords')">
+        <meta name="author" content="Trung Tâm CNTT&MTUD" />
+        <meta http-equiv="content-language" content="{{ app()->getLocale() }}" />
+        <meta name="robots" content="index, follow">
+        <meta name="revisit-after" content="3 days">
+        <meta name="geo.region" content="VN-34" />
+        <meta name="geo.position" content="12.245787, 109.194826" />
+        <meta name="ICBM" content="12.245787, 109.194826" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- FB Open Graph Tags -->
+        <meta property="fb:app_id"        content="" />
+        <meta property="og:url"           content="@yield('fb_url')" />
+        <meta property="og:type"          content="@yield('fb_type')" />
+        <meta property="og:title"         content="@yield('fb_title')" />
+        <meta property="og:description"   content="@yield('fb_des')" />
+        <meta property="og:image"         content="@yield('fb_img')" />
 
         @include('frontend.partials.head')
     </head>
