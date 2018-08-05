@@ -75,11 +75,11 @@
                                     </div>
                                     <div class="blog_post_content">
                                         <p>{{ $post->excerpt }}</p>
-                                        <ul>
+                                        <!-- <ul>
                                             <li><i class="pe-7s-comment"></i>7 Bình Luận</li>
                                             <li><i class="pe-7s-like"></i>10 Thích</li>
                                             <li><i class="pe-7s-look"></i>19 Lượt xem</li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                 </div>
                             </div>

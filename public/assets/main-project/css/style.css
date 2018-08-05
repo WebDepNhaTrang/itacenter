@@ -1177,14 +1177,16 @@ Latest From Our Blog CSS
 }
 .blog_post_content ul li {
   color: #888888;
-  display: inline-block;
+  /* display: inline-block; */
   margin-right: 20px;
-  font-size: 13px;
+  font-size: 15px;
+  line-height: 25px;
+  list-style-type: disc;
 }
 .blog_post_content ul li i {
   color: #ff3d00;
   font-size: 20px;
-  margin-right: 5px;
+  margin-left: 20px;
   vertical-align: middle;
 }
 
@@ -1520,7 +1522,7 @@ Latest News Page CSS
 }
 .latest_news_area .blog_post_content p, .single_post_area .blog_post_content p{
     font-size: 15px;
-    line-height: 32px;
+    line-height: 25px;
 }
 .latest_news_area .blog_post_heading, .single_post_area .blog_post_heading{
   padding: 15px 10px 0;

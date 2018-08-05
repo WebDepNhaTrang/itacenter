@@ -46,7 +46,7 @@
                     <div class="our_degrees_txt">
                         <h2>{{ setting('about.block_left_heading') }}</h2>
                         <p>
-                            {{ setting('about.block_left_content') }}
+                            {!! setting('about.block_left_content') !!}
                         </p>
                     </div>
                 </div>
