@@ -89,3 +89,19 @@ if(! function_exists('getLatestServices')){
         return $item;
     }
 }
+
+/*
+ * @select: string
+ * @order_col: string
+ * @order_by: asc/desc
+ * @slug: string
+ */
+if(! function_exists('getGalleriesBySlug')){
+    function getGalleriesBySlug($select='*', $order_col, $order_by='asc', $slug){
+        $item = App\Gallery::select($select)
+                    ->where('slug', $slug)
+                    ->orderBy($order_col, $order_by)
+                    ->first();
+        return $item;
+    }
+}

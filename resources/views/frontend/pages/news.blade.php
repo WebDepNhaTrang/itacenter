@@ -83,23 +83,20 @@
     </div>
 </section>
 
+@php
+    $gallery_data = getGalleriesBySlug('*', 'created_at', 'asc', 'galleries-for-news-page');
+    $galleries = json_decode($gallery_data->gallery);
+    
+@endphp
+@if($galleries)
 <section class="alumni_carousel">
     <div class="all_alumni_carousel_item">
+        @foreach($galleries as $v)
         <div class="single_alumni_caro_photo">
-            <img src="{{ asset('/assets/main-project/img/alumni_carousel_photo_1.jpg') }}" alt="">
+            <img src="{{ Voyager::image($v) }}" alt="">
         </div>
-        <div class="single_alumni_caro_photo">
-            <img src="{{ asset('/assets/main-project/img/alumni_carousel_photo_2.jpg') }}" alt="">
-        </div>
-        <div class="single_alumni_caro_photo">
-            <img src="{{ asset('/assets/main-project/img/alumni_carousel_photo_3.jpg') }}" alt="">
-        </div>
-        <div class="single_alumni_caro_photo">
-            <img src="{{ asset('/assets/main-project/img/alumni_carousel_photo_4.jpg') }}" alt="">
-        </div>
-        <div class="single_alumni_caro_photo">
-            <img src="{{ asset('/assets/main-project/img/alumni_carousel_photo_5.jpg') }}" alt="">
-        </div>
+        @endforeach
     </div>
 </section>
+@endif
 @endsection
