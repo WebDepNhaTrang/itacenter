@@ -187,7 +187,7 @@
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
     .container {
-        width:300px;
+        width:100%;
     }
     .header_area {
       margin-top: 10px;
