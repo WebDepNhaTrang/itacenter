@@ -71,7 +71,7 @@
                             <div class="sing_alumni_txt">
                                 <h2>{{ $post->title }}</h2>
                                 <p>{{ $post->excerpt }}</p>
-                                <a href="{{ route('post.single', ['slug' => $post->slug]) }}">Read more</a>
+                                <a href="{{ route('post.single', ['slug' => $post->slug]) }}">Xem thêm</a>
                             </div>
                         </div>
                     </div>
