@@ -1448,7 +1448,7 @@ Contact Page CSS
 }
 .send_email{
     background: #f8f8f8;
-    padding-left: 35px;
+    /* padding-left: 35px; */
     position: relative;
 }
 .send_email .section-padding{

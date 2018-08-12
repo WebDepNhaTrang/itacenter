@@ -39,10 +39,11 @@
         </div>
     </section>
 
-    <section class="send_us_email_area" style="background: url({{ Voyager::image(setting('contact.image')) }}) no-repeat scroll left center / cover rgba(0, 0, 0, 0); overflow: hidden;">
+    <section class="send_us_email_area" style="background: url({{ Voyager::image(setting('contact.image')) }}) no-repeat scroll left center / cover #f8f8f8; overflow: hidden;">
         <div class="container">
             <div class="row">
-                <div class="col-sm-offset-6 fix_p">
+                <!-- <div class="col-sm-offset-6 fix_p"> -->
+                <div class="fix_p">
                     <div class="send_email">
                         <div class="section-padding">
                             <h2>{{ setting('contact.heading') }}</h2>
