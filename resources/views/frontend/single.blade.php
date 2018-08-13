@@ -1,14 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title', $post->seo_title)
-@section('description', $post->meta_description)
-@section('keywords', $post->meta_keywords)
-
-@section('fb_url', route('post.single', ['slug' => $post->slug]))
-@section('fb_type', 'article')
-@section('fb_title', $post->seo_title)
-@section('fb_des', $post->meta_description)
-@section('fb_img', Voyager::image($post->image))
+@section('title', $post->title)
 
 @section('content')
     <section class="breadcrumb_area">
@@ -30,8 +22,8 @@
                         </div>
                         <div class="col-sm-7">
                             <ul>
-                                <li><a href="{{ url('/') }}">Home</a></li>
-                                <li>{{ $post->title }}</li>
+                                <!--li><a href="{{ url('/') }}">Home</a></li>
+                                <li>{{ $post->title }}</li-->
                             </ul>
                         </div>
                     </div>
@@ -48,116 +40,26 @@
                         <div class="blog_post_photo">
                             <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
                             <div class="blog_post_date_caption">
-                                <span>{{ $post->created_at->format('d M') }}</span>
+                                <span>{{ $post->created_at->format('d M') }}</span>
                             </div>
                         </div>
                         <div class="blog_post_txt">
                             <div class="blog_post_heading">
                                 <h2><a href="{{ route('post.single', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
                                 <p>Đăng bởi : {{ $post->authorId->name }}</p>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href={{ route('post.single', ['slug' => $post->slug]) }}&width=146&layout=button_count&action=like&size=small&show_faces=false&share=true&height=46&appId=534064153706931" width="146" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                             </div>
                             <div class="blog_post_content">
                                 {!! $post->body !!}
                             </div>
-                            <div class="blog_post_footer">
-                                <ul>
-                                    <!-- <li><i class="pe-7s-comment"></i>11 Bình Luận</li> -->
-                                    <li><i class="pe-7s-like"></i>13 Thích</li>
-                                    <li><i class="pe-7s-look"></i>19 Lượt xem</li>
-                                    <!-- <li class="blog_post_footer_right_item"><i class="pe-7s-ticket"></i>University, courses, college</li> -->
-                                </ul>
-                            </div>
+                            <div class="fb-comments" data-href="{{ route('post.single', ['slug' => $post->slug]) }}" data-numposts="5" data-width="100%"></div>
                         </div>
                     </div>
-                    
-                    <!-- <div class="single_post_comment_area">
-                        <h2>3 Comments</h2>
-                        <ul class="coments">
-                            <li>
-                                <div class="col-md-2 fix_p">
-                                    <div class="com_author_photo">
-                                        <img src="img/comment_photo_1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="comment_details">
-                                        <h3>Martin Guptil</h3>
-                                        <h4>April 10, 2015</h4>
-                                        <p>So lets make the most of this beautiful day. Since we're together. It's time to play the music. It's time to light the lights. It's time to meet the Muppets on the Muppet</p>
-                                        <a href="#" class="reply">Reply</a>
-                                    </div>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <div class="col-md-2 fix_p">
-                                            <div class="com_author_photo">
-                                                <img src="img/comment_photo_2.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="comment_details">
-                                                <h3>Merina pois</h3>
-                                                <h4>April 9, 2015</h4>
-                                                <p>Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</p>
-                                                <a href="#" class="reply">Reply</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="col-md-2 fix_p">
-                                    <div class="com_author_photo">
-                                        <img src="img/comment_photo_3.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="comment_details">
-                                        <h3>David Anderson</h3>
-                                        <h4>April 9, 2015</h4>
-                                        <p>We finally got a piece of the pie. Then one day he was shootin' at some food and up through the ground came a bubblin' crude.</p>
-                                        <a href="#" class="reply">Reply</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="comment_form">
-                            <h2>Leave A Comment</h2>
-                            <form action="http://wpmines.com/demos/educampus/single-post.html">
-                                <div class="row">
-                                    <div class="col-md-6 fix_p_r">
-                                        <input type="text" placeholder="Your Name *" >
-                                    </div>
-                                    <div class="col-md-6 fix_p_r">
-                                        <input type="text" placeholder="Your E-Mail *" >
-                                    </div>
-                                    <div class="col-md-6 fix_p_r">
-                                        <input type="text" placeholder="Phone" >
-                                    </div>
-                                    <div class="col-md-6 fix_p_r">
-                                        <input type="text" placeholder="Subject" >
-                                    </div>
-                                    <div class="col-md-12 fix_p_r">
-                                        <textarea name="" cols="30" rows="10" placeholder="Message"></textarea>
-                                        <input type="submit" value="Post Comment">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="col-md-4 col-sm-7">
                     <aside>
                         <div class="right_sidebar">
                             <div class="all_right_widgets">
-                                <!-- <div class="sing_right_widget">
-                                    <div class="sing_right_widg_content">
-                                        <form action="#">
-                                            <input type="text" placeholder="Search">
-                                            <input type="submit" value="">
-                                        </form>
-                                    </div>
-                                </div> -->
                                 <div class="sing_right_widget">
                                     @if($post->category_id == 1)
                                         <h2>Tin Tức Mới Nhất</h2>
@@ -184,31 +86,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- <div class="sing_right_widget">
-                                    <h2>Upcoming Events</h2>
-                                    <div class="sing_right_widg_content">
-                                        <div class="upcoming_events_right fix_m_r">
-                                            <div class="col-sm-4 col-xs-6 fix_p_l">
-                                                <img src="{{ asset('/assets/main-project/img/right_upcoming_event_1.jpg') }}" alt="">
-                                            </div>
-                                            <div class="col-sm-4 col-xs-6 fix_p_l">
-                                                <img src="{{ asset('/assets/main-project/img/right_upcoming_event_2.jpg') }}" alt="">
-                                            </div>
-                                            <div class="col-sm-4 col-xs-6 fix_p_l">
-                                                <img src="{{ asset('/assets/main-project/img/right_upcoming_event_3.jpg') }}" alt="">
-                                            </div>
-                                            <div class="col-sm-4 col-xs-6 fix_p_l">
-                                                <img src="{{ asset('/assets/main-project/img/right_upcoming_event_4.jpg') }}" alt="">
-                                            </div>
-                                            <div class="col-sm-4 col-xs-6 fix_p_l">
-                                                <img src="{{ asset('/assets/main-project/img/right_upcoming_event_5.jpg') }}" alt="">
-                                            </div>
-                                            <div class="col-sm-4 col-xs-6 fix_p_l">
-                                                <img src="{{ asset('/assets/main-project/img/right_upcoming_event_6.jpg') }}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
                                 <div class="sing_right_widget">
                                     <h2>Theo Dõi Chúng Tôi</h2>
                                     <div class="sing_right_widg_content">
@@ -243,22 +120,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- <div class="sing_right_widget">
-                                    <h2>Popular Tags</h2>
-                                    <div class="sing_right_widg_content">
-                                        <ul class="popular_tag_right">
-                                            <li><a href="#">Amazing</a></li>
-                                            <li><a href="#">Clean</a></li>
-                                            <li><a href="#">Multipurpose</a></li>
-                                            <li><a href="#">Envato</a></li>
-                                            <li><a href="#">Responsiveness</a></li>
-                                            <li><a href="#">IOS</a></li>
-                                            <li><a href="#">Creative</a></li>
-                                            <li><a href="#">Twitter</a></li>
-                                            <li><a href="#">Wordpress</a></li>
-                                        </ul>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </aside>
