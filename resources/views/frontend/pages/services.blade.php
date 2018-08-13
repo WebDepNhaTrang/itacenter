@@ -60,7 +60,7 @@
                         </div>
                         <div class="sing_lat_course_txt">
                             <a href="{{ route('service.single', $value->id) }}"><h2>{{ $value->name }}</h2></a>
-                            <p>{{ $value->description }}</p>
+                            <p class="description">{{ shorten_text($value->description, 220, '...', true) }}</p>
                         </div>
                     </div>
                 </div>

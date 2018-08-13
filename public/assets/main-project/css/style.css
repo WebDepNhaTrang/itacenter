@@ -453,6 +453,16 @@ Our Courses CSS
     font-weight: 700;
 }
 
+.sing_course_txt .description{
+    height: 75px;
+    overflow: hidden;
+}
+
+.single_latest_courses .description{
+    height: 78px;
+    overflow: hidden;
+}
+
 
 
 /* --------------------------------------------------------

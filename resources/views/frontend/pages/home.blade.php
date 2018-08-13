@@ -53,7 +53,7 @@
                         <div class="sing_course_txt">
                             <img src="{{ Voyager::image($value->icon) }}" alt="{{ $value->name }}" title="{{ $value->name }}" class="course_icon">
                             <h2>{{ $value->name }}</h2>
-                            <p>{{ $value->description }}</p>
+                            <p class="description">{{ shorten_text($value->description, 220, '...', true) }}</p>
                             <a href="{{ route('course.single', $value->id) }}">Xem chi tiết <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                             </div>
                             <div class="sing_lat_course_txt">
                                 <a href="{{ route('service.single', $value->id) }}"><h2>{{ $value->name }}</h2></a>
-                                <p>{{ $value->description }}</p>
+                                <p class="description">{{ shorten_text($value->description, 220, '...', true) }}</p>
                             </div>
                         </div>
                     @endforeach
