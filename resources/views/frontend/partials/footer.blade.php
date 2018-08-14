@@ -41,6 +41,11 @@
                     </nav>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a style="font-size: 13px;" class="developed" title="thiết kế web tại Nha Trang, thiết kế web Khánh Hòa, web đẹp nha trang" href="https://www.facebook.com/webdepnhatrang" target="_blank">Thiết kế và phát triển: KaTiSoft - Web Đẹp Nha Trang</a>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
