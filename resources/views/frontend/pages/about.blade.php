@@ -45,9 +45,7 @@
                 <div class="col-md-6 section-padding od_bg1">
                     <div class="our_degrees_txt">
                         <h2>{{ setting('about.block_left_heading') }}</h2>
-                        <p>
                             {!! setting('about.block_left_content') !!}
-                        </p>
                     </div>
                 </div>
                 <div class="col-md-6 section-padding od_bg2">
