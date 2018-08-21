@@ -74,7 +74,7 @@
                                         <p>Đăng bởi : {{ $post->authorId->name }}</p>
                                     </div>
                                     <div class="blog_post_content">
-                                        <p>{{ $post->excerpt }}</p>
+                                        <p class="description">{{ $post->excerpt }}</p>
                                         <!-- <ul>
                                             <li><i class="pe-7s-comment"></i>7 Bình Luận</li>
                                             <li><i class="pe-7s-like"></i>10 Thích</li>

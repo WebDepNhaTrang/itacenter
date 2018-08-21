@@ -1,10 +1,13 @@
 /* Medium Layout: 992px. */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    #st_home_noti{
+      padding-top: 50px;
+    }
     .container{
         width: 970px;
     } 
     .header_area {
-      margin-top: 30px;
+      margin-top: 0px;
     }
     .logo {
       padding-left: 20px;
@@ -20,7 +23,8 @@
       padding: 0 12px;
     }    
     .key_to_success_area {
-      margin-top: -106px;
+      margin-top: 0px;
+      height: 30%;
     }
     .index2 .key2seccess_txt {
       top: calc(50% + 61.5px - 159px);
@@ -95,11 +99,14 @@
 
 /* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+    #st_home_noti{
+      padding-top: 50px;
+    }
     .container{
         width:750px;
     }
     .header_area {
-      margin-top: 20px;
+      margin-top: 0px;
     }
      .logo {
       padding-left: 0;
@@ -119,7 +126,8 @@
       padding-left: 0;
     }    
     .key_to_success_area {
-      margin-top: -96px;
+      margin-top: 0px;
+      height: 25%;
     }    
     .course_search select {
       margin-right: 1.8%;
@@ -186,6 +194,12 @@
 
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
+    #social{
+      display: none;
+    }
+    #st_home_noti{
+      padding-top: 50px;
+    }
     .container {
         width:100%;
     }

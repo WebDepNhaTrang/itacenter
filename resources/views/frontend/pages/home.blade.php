@@ -31,6 +31,52 @@
         </div>
     </section>
 
+    <!-- Thông báo -->
+    <section id="st_home_noti" class="latest_blog_post_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section_heading">
+                        <h1>{{ setting('notification.heading') }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="all_latest_blog_post">
+                    <?php
+                        $posts = getAllPosts('*', 2, 'created_at', 'desc', 3);
+                    ?>
+                    @foreach($posts as $post)
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single_blog_post_box">
+                                <div class="blog_post_photo">
+                                    <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
+                                    <div class="blog_post_date_caption">
+                                        <span>{{ $post->created_at->format('d M') }}</span>
+                                    </div>
+                                </div>
+                                <div class="blog_post_txt">
+                                    <div class="blog_post_heading">
+                                        <h2><a href="{{ route('post.single', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
+                                        <p>Đăng bởi : {{ $post->authorId->name }}</p>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <p class="description">{{ $post->excerpt }}</p>
+                                        <!-- <ul>
+                                            <li><i class="pe-7s-comment"></i>7 Bình Luận</li>
+                                            <li><i class="pe-7s-like"></i>10 Thích</li>
+                                            <li><i class="pe-7s-look"></i>19 Lượt xem</li>
+                                        </ul> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="our_courses_area section-padding">
         <div class="container">
             <div class="row">

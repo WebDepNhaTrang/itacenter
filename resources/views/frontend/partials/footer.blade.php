@@ -49,6 +49,11 @@
         </div>
     </div>
 </footer>
+<div id="social">
+    <a href="{{ setting('site.social_facebook') }}" class="fa fa-facebook" target="_blank" title="Facebook"></a>
+    <a href="{{ setting('site.social_google') }}" class="fa fa-google" target="_blank" title="Google"></a>
+    <a href="{{ setting('site.social_youtube') }}" class="fa fa-youtube" target="_blank" title="Youtube"></a>
+</div>
 
 <!-- jQuery Latest version -->
 <script src="{{ asset('/assets/jquery/jquery.1.11.1.js') }}"></script>
