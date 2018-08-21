@@ -22,8 +22,8 @@
                         </div>
                         <div class="col-sm-7">
                             <ul>
-                                <li><a href="{{ url('/') }}">Home</a></li>
-                                <li>{{ $course->name }}</li>
+                                <!--li><a href="{{ url('/') }}">Home</a></li>
+                                <li>{{ $course->name }}</li-->
                             </ul>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <div class="blog_post_photo">
                             <img src="{{ Voyager::image($course->image) }}" alt="{{ $course->name }}">
                             <div class="blog_post_date_caption">
-                                <span>{{ $course->created_at->format('d M') }}</span>
+                                <span>{{ $course->created_at->format('d M') }}</span>
                             </div>
                         </div>
                         <div class="blog_post_txt">
@@ -121,5 +121,16 @@
             </div>
         </div>
     </section>
+    @if($course->galleries)
+    <section class="alumni_carousel">
+        <div class="all_alumni_carousel_item">
+            @foreach(json_decode($course->galleries) as $v)
+            <div class="single_alumni_caro_photo">
+                <img src="{{ Voyager::image($v) }}" alt="">
+            </div>
+            @endforeach
+        </div>
+    </section>
+    @endif
 
 @endsection

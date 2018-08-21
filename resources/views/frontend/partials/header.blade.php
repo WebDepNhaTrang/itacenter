@@ -3,7 +3,7 @@
 </div>
 
 <header class="header_area">
-    <div class="container">
+    <div class="">
         <div class="header_content">
             <div class="row">
                 <div class="col-md-3 col-sm-2">

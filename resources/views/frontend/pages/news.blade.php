@@ -71,7 +71,7 @@
                             <div class="sing_alumni_txt">
                                 <h2>{{ $post->title }}</h2>
                                 <p>{{ $post->excerpt }}</p>
-                                <a href="{{ route('post.single', ['slug' => $post->slug]) }}">Xem thêm</a>
+                                <a href="{{ route('post.single', ['slug' => $post->slug]) }}">Xem Thêm</a>
                             </div>
                         </div>
                     </div>
@@ -82,21 +82,4 @@
         {{ $posts->links() }}
     </div>
 </section>
-
-@php
-    $gallery_data = getGalleriesBySlug('*', 'created_at', 'asc', 'galleries-for-news-page');
-    $galleries = json_decode($gallery_data->gallery);
-    
-@endphp
-@if($galleries)
-<section class="alumni_carousel">
-    <div class="all_alumni_carousel_item">
-        @foreach($galleries as $v)
-        <div class="single_alumni_caro_photo">
-            <img src="{{ Voyager::image($v) }}" alt="">
-        </div>
-        @endforeach
-    </div>
-</section>
-@endif
 @endsection

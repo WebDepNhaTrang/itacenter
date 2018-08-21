@@ -1,5 +1,11 @@
+@media only screen and (min-width: 1200px){
+  .header_content{
+    padding: 0 110px;
+  }
+}
 /* Medium Layout: 992px. */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    
     #st_home_noti{
       padding-top: 50px;
     }
@@ -99,9 +105,9 @@
 
 /* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    #st_home_noti{
-      padding-top: 50px;
-    }
+  #st_home_noti{
+    padding-top: 50px;
+  }
     .container{
         width:750px;
     }
@@ -194,19 +200,20 @@
 
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
-    #social{
-      display: none;
-    }
-    #st_home_noti{
-      padding-top: 50px;
-    }
+  #social{
+    display: none;
+  }
+  #st_home_noti{
+    padding-top: 50px;
+  }
     .container {
         width:100%;
     }
     .header_area {
-      margin-top: 10px;
+      margin-top: 0px;
     }
     .header_content {
+      padding: 0 25px;
       border-bottom: 0px;
     }
     .logo {
@@ -509,6 +516,9 @@
 
 /* Wide Mobile Layout: 480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+    #st_home_noti{
+      padding-top: 50px;
+    }
     .container {
         width:450px;
     }

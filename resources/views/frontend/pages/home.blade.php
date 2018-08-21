@@ -74,6 +74,11 @@
                     @endforeach
                 </div>
             </div>
+            <div class="row">
+                <div class="view-all text-center" style="padding: 35px 0 0 0;">
+                    <a href="{{ route('frontend.pages.notification') }}" class="btn btn-danger"> Xem Tất Cả Thông Báo</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -105,6 +110,11 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+            <div class="row">
+                <div class="view-all text-center" style="padding: 35px 0 0 0;">
+                    <a href="{{ route('frontend.pages.courses') }}" class="btn btn-danger"> Xem Tất Cả Khóa Học</a>
+                </div>
             </div>
         </div>
     </section>
@@ -141,7 +151,7 @@
                                     <div class="single_why_choose_icon">
                                         <img src="{{ Voyager::image(setting('home.why_section_single1_icon')) }}" alt="">
                                     </div>
-                                    <h3>{{ setting('home.why_section_single1_title') }}</h3>
+                                    <h3>{{ setting('home.why_section_single1_title') }}</h3>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -149,7 +159,7 @@
                                     <div class="single_why_choose_icon">
                                         <img src="{{ Voyager::image(setting('home.why_section_single2_icon')) }}" alt="">
                                     </div>
-                                    <h3>{{ setting('home.why_section_single2_title') }}</h3>
+                                    <h3>{{ setting('home.why_section_single2_title') }}</h3>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -157,7 +167,7 @@
                                     <div class="single_why_choose_icon">
                                         <img src="{{ Voyager::image(setting('home.why_section_single3_icon')) }}" alt="">
                                     </div>
-                                    <h3>{{ setting('home.why_section_single3_title') }}</h3>
+                                    <h3>{{ setting('home.why_section_single3_title') }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -192,6 +202,11 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+            </div>
+            <div class="row">
+                <div class="view-all text-center" style="padding: 35px 0 0 0;">
+                    <a href="{{ route('frontend.pages.services') }}" class="btn btn-danger"> Xem Tất Cả Dịch Vụ</a>
                 </div>
             </div>
         </div>
