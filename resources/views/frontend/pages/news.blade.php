@@ -54,17 +54,15 @@
                 <?php
                     $paginate = setting('news.paginate');
                     $posts = getAllPosts('*', 1, 'created_at', 'desc', $paginate);
-                    // echo $posts[0]->category->name;
-                    // echo "<pre>";
-                    // print_r($posts);
-                    // echo "</pre>";
                 ?>
                 @foreach($posts as $post)
                 <div class="col-sm-6">
                     <div class="single_alumni_box">
                         <div class="col-sm-4 fix_p_l">
                             <div class="sing_alumni_photo">
-                                <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
+                                <a href="{{ route('post.single', ['slug' => $post->slug]) }}">
+                                    <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-8 fix_p_l">

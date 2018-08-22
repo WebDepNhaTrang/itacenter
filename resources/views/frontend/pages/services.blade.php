@@ -56,7 +56,9 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="single_latest_courses">
                         <div class="sing_lat_course_photo">
-                            <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
+                            <a href="{{ route('service.single', $value->id) }}">
+                                <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
+                            </a>
                         </div>
                         <div class="sing_lat_course_txt">
                             <a href="{{ route('service.single', $value->id) }}"><h2>{{ $value->name }}</h2></a>

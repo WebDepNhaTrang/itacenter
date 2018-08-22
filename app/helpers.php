@@ -132,3 +132,13 @@ if(! function_exists('shorten_text')){
         return $text;
     }
 }
+
+if(! function_exists('render_fanpage_fb')){
+    function render_fanpage_fb()
+    {
+        $html = '<div class="fb-page" data-href="https://facebook.com/ttudcntt" data-tabs="timeline" data-width="280px" data-height="300px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://facebook.com/ttudcntt" class="fb-xfbml-parse-ignore"><a href="https://facebook.com/ttudcntt">Trung tâm CNTT và Mỹ Thuật ứng dụng</a></blockquote></div>';
+
+        return $html;
+    }
+}
+

@@ -50,7 +50,10 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="single_blog_post_box">
                                 <div class="blog_post_photo">
-                                    <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
+                                    <a href="{{ route('post.single', ['slug' => $post->slug]) }}">
+                                        <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
+                                    </a>
+                                    
                                     <div class="blog_post_date_caption">
                                         <span>{{ $post->created_at->format('d M') }}</span>
                                     </div>
@@ -62,11 +65,6 @@
                                     </div>
                                     <div class="blog_post_content">
                                         <p class="description">{{ $post->excerpt }}</p>
-                                        <!-- <ul>
-                                            <li><i class="pe-7s-comment"></i>7 Bình Luận</li>
-                                            <li><i class="pe-7s-like"></i>10 Thích</li>
-                                            <li><i class="pe-7s-look"></i>19 Lượt xem</li>
-                                        </ul> -->
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +97,9 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="single_our_course">
                         <div class="sing_course_thumb">
-                            <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
+                            <a href="{{ route('course.single', $value->id) }}">
+                                <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
+                            </a>
                         </div>
                         <div class="sing_course_txt">
                             <img src="{{ Voyager::image($value->icon) }}" alt="{{ $value->name }}" title="{{ $value->name }}" class="course_icon">
@@ -151,7 +151,7 @@
                                     <div class="single_why_choose_icon">
                                         <img src="{{ Voyager::image(setting('home.why_section_single1_icon')) }}" alt="">
                                     </div>
-                                    <h3>{{ setting('home.why_section_single1_title') }}</h3>
+                                    <h3>{{ setting('home.why_section_single1_title') }}</h3>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -159,7 +159,7 @@
                                     <div class="single_why_choose_icon">
                                         <img src="{{ Voyager::image(setting('home.why_section_single2_icon')) }}" alt="">
                                     </div>
-                                    <h3>{{ setting('home.why_section_single2_title') }}</h3>
+                                    <h3>{{ setting('home.why_section_single2_title') }}</h3>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -167,7 +167,7 @@
                                     <div class="single_why_choose_icon">
                                         <img src="{{ Voyager::image(setting('home.why_section_single3_icon')) }}" alt="">
                                     </div>
-                                    <h3>{{ setting('home.why_section_single3_title') }}</h3>
+                                    <h3>{{ setting('home.why_section_single3_title') }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +194,9 @@
                     @foreach($services as $value)
                         <div class="single_latest_courses">
                             <div class="sing_lat_course_photo">
-                                <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
+                                <a href="{{ route('service.single', $value->id) }}">
+                                    <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
+                                </a>
                             </div>
                             <div class="sing_lat_course_txt">
                                 <a href="{{ route('service.single', $value->id) }}"><h2>{{ $value->name }}</h2></a>

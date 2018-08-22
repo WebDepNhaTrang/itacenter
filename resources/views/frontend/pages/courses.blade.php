@@ -56,12 +56,14 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="single_our_course">
                         <div class="sing_course_thumb">
-                            <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
+                            <a href="{{ route('course.single', $value->id) }}">
+                                <img src="{{ Voyager::image($value->image) }}" alt="{{ $value->name }}">
+                            </a>
                         </div>
                         <div class="sing_course_txt">
                             <img src="{{ Voyager::image($value->icon) }}" alt="{{ $value->name }}" title="{{ $value->name }}" class="course_icon">
                             <h2>{{ $value->name }}</h2>
-                            <p class="description">{{ shorten_text($value->description, 150, '...', true) }}</p>
+                            <p class="description">{{ shorten_text($value->description, 220, '...', true) }}</p>
                             <a href="{{ route('course.single', $value->id) }}">Xem chi tiết <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>

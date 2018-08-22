@@ -63,9 +63,11 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="single_blog_post_box">
                                 <div class="blog_post_photo">
-                                    <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
+                                    <a href="{{ route('post.single', ['slug' => $post->slug]) }}">
+                                        <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
+                                    </a>
                                     <div class="blog_post_date_caption">
-                                        <span>{{ $post->created_at->format('d M') }}</span>
+                                        <span>{{ $post->created_at->format('d M') }}</span>
                                     </div>
                                 </div>
                                 <div class="blog_post_txt">
@@ -75,11 +77,6 @@
                                     </div>
                                     <div class="blog_post_content">
                                         <p class="description">{{ $post->excerpt }}</p>
-                                        <!-- <ul>
-                                            <li><i class="pe-7s-comment"></i>7 Bình Luận</li>
-                                            <li><i class="pe-7s-like"></i>10 Thích</li>
-                                            <li><i class="pe-7s-look"></i>19 Lượt xem</li>
-                                        </ul> -->
                                     </div>
                                 </div>
                             </div>

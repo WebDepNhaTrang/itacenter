@@ -88,28 +88,7 @@
                                 </div>
                                 <div class="sing_right_widget">
                                     <h2>Theo Dõi Chúng Tôi</h2>
-                                    <div class="sing_right_widg_content">
-                                        <div class="social_share_logo_right fix_m_r">
-                                            <div class="col-md-4 col-sm-4 fix_p_l">
-                                                <div class="single_social_share">
-                                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                                    <span class="counter">5169</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4 fix_p_l">
-                                                <div class="single_social_share">
-                                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                                    <span class="counter">3210</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4 fix_p_l">
-                                                <div class="single_social_share">
-                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                    <span class="counter">2012</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {!! render_fanpage_fb() !!}
                                 </div>
                                 <div class="sing_right_widget">
                                     <h2>Danh Mục</h2>

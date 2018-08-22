@@ -22,8 +22,8 @@
                         </div>
                         <div class="col-sm-7">
                             <ul>
-                                <li><a href="{{ url('/') }}">Home</a></li>
-                                <li>{{ $service->name }}</li>
+                                <!--li><a href="{{ url('/') }}">Home</a></li>
+                                <li>{{ $service->name }}</li-->
                             </ul>
                         </div>
                     </div>
@@ -51,14 +51,7 @@
                             <div class="blog_post_content">
                                 {!! $service->body !!}
                             </div>
-                            <div class="blog_post_footer">
-                                <ul>
-                                    <!-- <li><i class="pe-7s-comment"></i>11 Bình Luận</li> -->
-                                    <li><i class="pe-7s-like"></i>13 Thích</li>
-                                    <li><i class="pe-7s-look"></i>19 Lượt xem</li>
-                                    <!-- <li class="blog_post_footer_right_item"><i class="pe-7s-ticket"></i>University, courses, college</li> -->
-                                </ul>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -68,11 +61,11 @@
                             <div class="all_right_widgets">
                                 
                                 <div class="sing_right_widget">
-                                        <h2>Dịch Vụ Của Chúng Tôi</h2>
+                                    <h2>Dịch Vụ Của Chúng Tôi</h2>
                                     <div class="sing_right_widg_content">
                                         <ul class="lat_news_right">
                                             <?php
-                                                $latest_services = getLatestServices('*', 'created_at', 'desc', 4);
+                                                $latest_services = getLatestServices('*', 'created_at', 'desc', 5);
                                             ?>
                                             @foreach($latest_services as $latest_service)
                                                 @if($service->id != $latest_service->id)
@@ -91,28 +84,7 @@
                                 
                                 <div class="sing_right_widget">
                                     <h2>Theo Dõi Chúng Tôi</h2>
-                                    <div class="sing_right_widg_content">
-                                        <div class="social_share_logo_right fix_m_r">
-                                            <div class="col-md-4 col-sm-4 fix_p_l">
-                                                <div class="single_social_share">
-                                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                                    <span class="counter">5169</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4 fix_p_l">
-                                                <div class="single_social_share">
-                                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                                    <span class="counter">3210</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4 fix_p_l">
-                                                <div class="single_social_share">
-                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                    <span class="counter">2012</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {!! render_fanpage_fb() !!}
                                 </div>
                             </div>
                         </div>
