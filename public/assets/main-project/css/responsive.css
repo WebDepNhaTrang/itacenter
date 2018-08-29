@@ -22,7 +22,7 @@
       font-size: 17px;
     }    
     .logo a img {
-      width: 50px;
+      width: 200px;
     }    
     ul.nav.navbar-nav li > a {
       font-size: 15px;
@@ -123,6 +123,8 @@
     }    
     .logo a img {
       margin-left: 15px;
+      width:200px;
+      margin-top: 20px;
     }    
     ul.nav.navbar-nav li > a {
       font-size: 13px;
@@ -228,7 +230,7 @@
       line-height: 72px;
     }  
     .logo a img{
-      width: 50px;
+      width: 200px;
     }    
     .logo .navbar-header {
       display: block;

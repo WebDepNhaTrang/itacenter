@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-2">
                     <div class="logo">
-                        <a href="{{ url('/') }}"><img src="{{ Voyager::image(setting('site.logo')) }}" alt="ITA Center">ITA<span> Center</span></a>                           
+                        <a href="{{ url('/') }}"><img src="{{ Voyager::image(setting('site.logo')) }}" alt="ITA Center"></a>                           
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span>
