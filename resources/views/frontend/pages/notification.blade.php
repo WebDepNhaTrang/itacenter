@@ -62,21 +62,21 @@
                     @foreach($posts as $post)
                         <div class="col-md-4 col-sm-6">
                             <div class="single_blog_post_box">
-                                <div class="blog_post_photo">
+                                <!-- <div class="blog_post_photo">
                                     <a href="{{ route('post.single', ['slug' => $post->slug]) }}">
                                         <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
                                     </a>
                                     <div class="blog_post_date_caption">
                                         <span>{{ $post->created_at->format('d M') }}</span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="blog_post_txt">
                                     <div class="blog_post_heading">
                                         <h2><a href="{{ route('post.single', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
                                         <p>Đăng bởi : {{ $post->authorId->name }}</p>
                                     </div>
                                     <div class="blog_post_content">
-                                        <p class="description">{{ $post->excerpt }}</p>
+                                        <p class="description">{{ $post->excerpt }}<br>{{ $post->created_at->format('d-m-Y') }}</p>
                                     </div>
                                 </div>
                             </div>

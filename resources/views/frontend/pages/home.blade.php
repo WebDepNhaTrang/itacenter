@@ -10,7 +10,7 @@
 @section('fb_img', Voyager::image(setting('site.logo')))
 
 @section('content')
-    <section class="key_to_success_area">
+    <!-- <section class="key_to_success_area">
         <div class="container">
             <div class="row">
                 <div class="key_to_success">
@@ -27,6 +27,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section> -->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                    <img class="responsive" src="{{ Voyager::image(setting('home.banner_photo')) }}" alt="">
             </div>
         </div>
     </section>
@@ -49,7 +56,7 @@
                     @foreach($posts as $post)
                         <div class="col-md-4 col-sm-6">
                             <div class="single_blog_post_box">
-                                <div class="blog_post_photo">
+                                <!-- <div class="blog_post_photo">
                                     <a href="{{ route('post.single', ['slug' => $post->slug]) }}">
                                         <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
                                     </a>
@@ -57,11 +64,11 @@
                                     <div class="blog_post_date_caption">
                                         <span>{{ $post->created_at->format('d M') }}</span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="blog_post_txt">
                                     <div class="blog_post_heading">
                                         <h2><a href="{{ route('post.single', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
-                                        <p>Đăng bởi : {{ $post->authorId->name }}</p>
+                                        <p>Đăng bởi : {{ $post->authorId->name }}<br>{{ $post->created_at->format('d-m-Y') }}</p>
                                     </div>
                                     <div class="blog_post_content">
                                         <p class="description">{{ $post->excerpt }}</p>

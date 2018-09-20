@@ -37,16 +37,22 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="single_blog_post_box">
+                        @if($post->category_id == 1)
                         <div class="blog_post_photo">
                             <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
                             <div class="blog_post_date_caption">
                                 <span>{{ $post->created_at->format('d M') }}</span>
                             </div>
                         </div>
+                        @endif
                         <div class="blog_post_txt">
                             <div class="blog_post_heading">
                                 <h2><a href="{{ route('post.single', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
-                                <p>Đăng bởi : {{ $post->authorId->name }}</p>
+                                @if($post->category_id == 1)
+                                    <p>Đăng bởi : {{ $post->authorId->name }}</p>
+                                @elseif($post->category_id == 2)
+                                    <p>Đăng bởi : {{ $post->authorId->name }}<br>{{ $post->created_at->format('d-m-Y') }}</p>
+                                @endif
                                 <iframe src="https://www.facebook.com/plugins/like.php?href={{ route('post.single', ['slug' => $post->slug]) }}&width=146&layout=button_count&action=like&size=small&show_faces=false&share=true&height=46&appId=534064153706931" width="146" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                             </div>
                             <div class="blog_post_content">
@@ -75,7 +81,9 @@
                                             @foreach($latest_posts as $latest_post)
                                                 @if($post->slug != $latest_post->slug)
                                                 <li>
+                                                    @if($post->category_id == 1)
                                                     <img src="{{ Voyager::image($latest_post->image) }}" alt="{{ $latest_post->title }}" width="59">
+                                                    @endif
                                                     <div class="lat_news_right_con">
                                                         <h3><a href="{{ route('post.single', ['slug' => $latest_post->slug]) }}">{{ $latest_post->title }}</a></h3>
                                                         <h4>{{ $post->created_at->format('M d, Y') }}</h4>

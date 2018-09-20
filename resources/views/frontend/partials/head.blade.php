@@ -22,8 +22,8 @@
 <link rel="stylesheet" href="{{ asset('/assets/main-project/css/responsive.css') }}">
 
 <!-- Favicons -->
-<link rel="apple-touch-icon-precomposed" href="{{ asset('/assets/main-project/img/apple-touch-icon-precomposed.html') }}">
-<link rel="shortcut icon" type="image/png" href="{{ asset('/assets/main-project/img/fav-icon.html') }}"/>  
+<link rel="apple-touch-icon-precomposed" href="{{ asset('/assets/main-project/img/favicon.png') }}">
+<link rel="shortcut icon" type="image/png" href="{{ asset('/assets/main-project/img/favicon.png') }}"/>  
 
 <!-- Google Maps API -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAisknDhl9ltrTm8madKT6syVacjVMw4So"></script>
