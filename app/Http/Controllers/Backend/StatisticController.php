@@ -12,8 +12,9 @@ class StatisticController extends Controller
 {
     public function index(){
         $center_classes = CenterClass::all();
+        $students = Student::all();
 
-        return view('backend.statistic.index', ['center_classes' => $center_classes]);
+        return view('backend.statistic.index', ['center_classes' => $center_classes, 'students' => $students]);
     }
 
     public function postStatisticByYear(Request $request){
@@ -146,6 +147,87 @@ class StatisticController extends Controller
         $html.='<p style="color: blue;">The number of students passed: '.$student_pass.'</p>';
         $html.='<p style="color: red;">The number of students failed: '.$student_failed.'</p>';
         $html.='</div>';
+        return $html;
+    }
+
+    public function postStatisticByStudent(Request $request){
+        $student_id = $request->input('student_id');
+        if($student_id){
+            $student_info = Student::findOrFail($student_id);
+
+            if($student_info){
+
+                $html = $this->renderStatisticByStudent($student_info);
+                
+                return response()
+                ->json([
+                    'result' => 'true',
+                    'message' => 'Statistic By Student',
+                    'data'    => $html
+                ]);
+            }else{
+                return response()
+                ->json([
+                    'result' => 'false',
+                    'message' => 'Empty Data',
+                    'data'    => null
+                ]);
+            }
+        }else{
+            return response()
+                ->json([
+                    'result' => 'false',
+                    'message' => 'Empty Data',
+                    'data'    => null
+                ]);
+        }
+    }
+
+    protected function renderStatisticByStudent($student_info){
+
+        $html = '<label class="col-md-3">MSSV:</label><label class="col-md-9">'.$student_info->mssv.'</label>';
+        $html .= '<label class="col-md-3">Họ và tên:</label><label class="col-md-9">'.$student_info->fullname.'</label>';
+        $html .= '<label class="col-md-3">Ngày sinh:</label><label class="col-md-9">'.\Carbon\Carbon::parse($student_info->birthday)->format('d/m/Y').'</label>';
+        if($student_info->regular_class_id){
+            $html .= '<label class="col-md-3">Lớp chính quy:</label><label class="col-md-9">'.$student_info->regular_classes->name.'</label>';
+        }else{
+            $html .= '<label class="col-md-12">Lớp chính quy:</label>';
+        }
+        
+        if($student_info->has_certificate == 0){
+            $html .= '<label class="col-md-3">Chứng chỉ:</label><label class="col-md-9">Chưa có</label>';
+        }
+        if($student_info->has_certificate == 1){
+            $html .= '<label class="col-md-3">Chứng chỉ:</label><label class="col-md-9">Đã có</label>';
+        }
+        $html .= '<label class="col-md-12">Lớp trung tâm:</label>';
+        $html .='<table class="table">';
+        $html .='    <thead>';
+        $html .='    <tr>';
+        $html .='        <th>Mã lớp</th>';
+        $html .='        <th>Năm học</th>';
+        $html .='        <th>Điểm số</th>';
+        $html .='    </tr>';
+        $html .='    </thead>';
+        $html .='    <tbody>';
+        foreach($student_info->center_classes as $value){
+            $html.='    <tr>';
+            $html.='        <td>'.$value->class_code.'</td>';
+            $html.='        <td>'.$value->school_year.'</td>';
+            $student_center_class = StudentsCenterClass::select('test_score')->where(['student_id'=>$student_info->id, 'center_class_id'=>$value->id])->first();
+            if($student_center_class->test_score >= 5){
+                $class_color = 'style="color: blue;"';
+            }else{
+                $class_color = 'style="color: red;"';
+            }
+            $html.='        <td '.$class_color.'>'.$student_center_class->test_score.'</td>';
+            $html.='    </tr>';
+        }   
+        $html.='    </tbody>';
+        $html.='</table>';
+
+        
+
         return $html;
     }
 }

@@ -43,7 +43,7 @@ Route::group(['prefix' => 'admin'], function () {
         'as'    => 'backend.excel.postImportStudents'
     ]);
 
-    // Statistic Students
+    // Statistic
     Route::get('/statistic', [
         'uses'  => 'Backend\StatisticController@index',
         'as'    => 'backend.statistic.index'
@@ -57,6 +57,11 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/statistic-by-center-class', [
         'uses'  => 'Backend\StatisticController@postStatisticByCenterClass',
         'as'    => 'backend.statistic.by_center_class'
+    ]);
+    // Statistic By Student
+    Route::post('/statistic-by-student', [
+        'uses'  => 'Backend\StatisticController@postStatisticByStudent',
+        'as'    => 'backend.statistic.by_student'
     ]);
 });
 

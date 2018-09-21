@@ -31,6 +31,7 @@
                                 <select class="form-control" name="statistic" id="statistic">
                                     <option value="year" selected>Year</option>
                                     <option value="center_class">Center Class</option>
+                                    <option value="student">Student</option>
                                 </select>
                             </div>
                             <div class="form-group" id="year_input">
@@ -39,9 +40,17 @@
                             </div>
                             <div class="form-group" id="center_class_input">
                                 <label for="center_class_input">Center Class:</label>
-                                <select id="center_class_input" class="form-control select2" name="center_class_input">
+                                <select id="" class="form-control select2" name="center_class_input">
                                     @foreach($center_classes as $center_class)
                                     <option value="{{ $center_class->id }}">{{ $center_class->class_code }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group" id="student_input">
+                                <label for="student_input">Student Code - Name:</label>
+                                <select id="" class="form-control select2" name="student_input">
+                                    @foreach($students as $student)
+                                    <option value="{{ $student->id }}">{{ $student->mssv }} - {{ $student->fullname }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -53,7 +62,6 @@
                 </div>
             </div>
             <div class="col-md-9">
-            
                 <div class="panel panel-bordered show-review">
                     
                 </div>
@@ -66,15 +74,23 @@
     <script>
         $('document').ready(function () {
             $("#center_class_input").hide();
+            $("#student_input").hide();
 
             $('#statistic').on('change', function() {
                 if(this.value == 'year'){
                     $("#year_input").show();
                     $("#center_class_input").hide();
+                    $("#student_input").hide();
                 }
                 if(this.value == 'center_class'){
-                    $("#year_input").hide();
                     $("#center_class_input").show();
+                    $("#year_input").hide();
+                    $("#student_input").hide();
+                }
+                if(this.value == 'student'){
+                    $("#student_input").show();
+                    $("#year_input").hide();
+                    $("#center_class_input").hide();
                 }
             });
 
@@ -114,6 +130,24 @@
                         method:'post',
                         url:"{{ route('backend.statistic.by_center_class') }}",
                         data:{ 'center_class_id': center_class_id },
+                        success:function(data){
+                            
+                            if(data.result == 'true'){
+                                $(".show-review").html(data.data)
+                            }else{
+                                $(".show-review").html("<h3>"+data.message+"</h3>")
+                            }
+                        }
+                    });
+                // Thống kê theo mã/tên sinh viên
+                }else if( $("#statistic").val() == 'student' ){
+                    var student_id = $("#student_input option:selected").val();
+
+                    $(".show-review").html("<h3>Loading...</h3>");
+                    $.ajax({
+                        method:'post',
+                        url:"{{ route('backend.statistic.by_student') }}",
+                        data:{ 'student_id': student_id },
                         success:function(data){
                             
                             if(data.result == 'true'){

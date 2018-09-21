@@ -19,4 +19,9 @@ class Student extends Model
                     ->withPivot('center_class_id', 'student_id', 'test_score')
                     ->withTimestamps();
     }
+
+    public function regular_classes()
+    {
+        return $this->belongsTo('App\RegularClass', 'regular_class_id');
+    }
 }
