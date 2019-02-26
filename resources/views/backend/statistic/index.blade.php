@@ -4,12 +4,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @stop
 
-@section('page_title', __('Statistic'))
+@section('page_title', __('Thống kê - Báo cáo'))
 
 @section('page_header')
     <h1 class="page-title">
         <i class="icon voyager-pie-chart"></i>
-        Statistic
+        Thống kê - Báo cáo
     </h1>
 @stop
 
@@ -27,19 +27,19 @@
 
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="statistic">Static By:</label>
+                                <label for="statistic">Thống kê theo:</label>
                                 <select class="form-control" name="statistic" id="statistic">
-                                    <option value="year" selected>Year</option>
-                                    <option value="center_class">Center Class</option>
-                                    <option value="student">Student</option>
+                                    <option value="year" selected>Năm học</option>
+                                    <option value="center_class">Lớp trung tâm</option>
+                                    <option value="student">Sinh viên</option>
                                 </select>
                             </div>
                             <div class="form-group" id="year_input">
-                                <label for="year_input">Year (YYYY-YYYY):</label>
+                                <label for="year_input">Năm học (YYYY-YYYY):</label>
                                 <input class="form-control" type="text" name="year_input">
                             </div>
                             <div class="form-group" id="center_class_input">
-                                <label for="center_class_input">Center Class:</label>
+                                <label for="center_class_input">Lớp trung tâm:</label>
                                 <select id="" class="form-control select2" name="center_class_input">
                                     @foreach($center_classes as $center_class)
                                     <option value="{{ $center_class->id }}">{{ $center_class->class_code }}</option>
@@ -47,7 +47,7 @@
                                 </select>
                             </div>
                             <div class="form-group" id="student_input">
-                                <label for="student_input">Student Code - Name:</label>
+                                <label for="student_input">MSSV - Họ Tên:</label>
                                 <select id="" class="form-control select2" name="student_input">
                                     @foreach($students as $student)
                                     <option value="{{ $student->id }}">{{ $student->mssv }} - {{ $student->fullname }}</option>
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary" id="statistic-btn">{{ __('Submit') }}</button>
+                            <button type="submit" class="btn btn-primary" id="statistic-btn">{{ __('Thống kê') }}</button>
                         </div>
                     </form>
                 </div>

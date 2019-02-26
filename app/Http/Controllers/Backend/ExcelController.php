@@ -63,7 +63,18 @@ class ExcelController extends Controller
 
                 foreach ($rows as $key => $value) {
                     // print_r($value);
-                    $student_list[] = ['mssv' => $value->student_code, 'fullname' => $value->fullname, 'birthday' => $value->birthday, 'regular_class_id' => $value->regular_class, 'has_certificate' => $value->has_certificate, 'created_at' => Carbon::now()];
+                    $student_list[] = [
+                        'mssv' => $value->student_code,
+                        'fullname' => $value->fullname,
+                        'birthday' => $value->birthday,
+                        'regular_class_id' => $value->regular_class,
+                        'has_certificate_word' => $value->has_certificate_word,
+                        'has_certificate_excel' => $value->has_certificate_excel,
+                        'school_year' => $value->school_year,
+                        'phone' => $value->phone,
+                        'gender' => $value->gender,
+                        'created_at' => Carbon::now()
+                    ];
                 }
 
                 

@@ -38,7 +38,7 @@ class StatisticController extends Controller
                 return response()
                 ->json([
                     'result' => 'false',
-                    'message' => 'Empty Data',
+                    'message' => 'Dữ liệu rỗng',
                     'data'    => null
                 ]);
             }
@@ -46,7 +46,7 @@ class StatisticController extends Controller
             return response()
                 ->json([
                     'result' => 'false',
-                    'message' => 'Empty Data',
+                    'message' => 'Dữ liệu rỗng',
                     'data'    => null
                 ]);
         }   
@@ -56,17 +56,17 @@ class StatisticController extends Controller
         $html ='<table class="table">';
         $html.='    <thead>';
         $html.='    <tr>';
-        $html.='        <th>Center Class</th>';
-        $html.='        <th>Students(>=5)</th>';
-        $html.='        <th>Students(<5)</th>';
+        $html.='        <th>Lớp trung tâm</th>';
+        $html.='        <th>Sinh viên (điểm >= 5)</th>';
+        $html.='        <th>Sinh viên (điểm < 5)</th>';
         $html.='    </tr>';
         $html.='    </thead>';
         $html.='    <tbody>';
         foreach($data as $value){
             $students_over = StudentsCenterClass::where('center_class_id',$value['id'])
-                                ->where('test_score', '>=', '5')->count();
+                                ->where('final_score', '>=', '5')->count();
             $students_under = StudentsCenterClass::where('center_class_id',$value['id'])
-                                ->where('test_score', '<', '5')->count();
+                                ->where('final_score', '<', '5')->count();
             $html.='    <tr>';
             $html.='        <td>'.$value['class_code'].'</td>';
             $html.='        <td style="color: blue;">'.$students_over.'</td>';
@@ -93,14 +93,14 @@ class StatisticController extends Controller
                 return response()
                 ->json([
                     'result' => 'true',
-                    'message' => 'Statistic By Year',
+                    'message' => 'Statistic By Center Class',
                     'data'    => $html
                 ]);
             }else{
                 return response()
                 ->json([
                     'result' => 'false',
-                    'message' => 'Empty Data',
+                    'message' => 'Dữ liệu rỗng',
                     'data'    => null
                 ]);
             }
@@ -108,7 +108,7 @@ class StatisticController extends Controller
             return response()
                 ->json([
                     'result' => 'false',
-                    'message' => 'Empty Data',
+                    'message' => 'Dữ liệu rỗng',
                     'data'    => null
                 ]);
         }   
@@ -118,9 +118,11 @@ class StatisticController extends Controller
         $html ='<table class="table">';
         $html.='    <thead>';
         $html.='    <tr>';
-        $html.='        <th>Fullname</th>';
-        $html.='        <th>Student Code</th>';
-        $html.='        <th>Test Score</th>';
+        $html.='        <th>Họ Tên</th>';
+        $html.='        <th>MSSV</th>';
+        $html.='        <th>Điểm bộ phận</th>';
+        $html.='        <th>Điểm thi</th>';
+        $html.='        <th>Điểm tổng kết</th>';
         $html.='    </tr>';
         $html.='    </thead>';
         $html.='    <tbody>';
@@ -131,14 +133,16 @@ class StatisticController extends Controller
             $html.='    <tr>';
             $html.='        <td>'.$student_current->fullname.'</td>';
             $html.='        <td>'.$student_current->mssv.'</td>';
-            if($value['test_score'] >= 5){
+            $html.='        <td>'.$value['process_score'].'</td>';
+            $html.='        <td>'.$value['test_score'].'</td>';
+            if($value['final_score'] >= 5){
                 $class_color = 'style="color: blue;"';
                 $student_pass++;
             }else{
                 $class_color = 'style="color: red;"';
                 $student_failed++;
             }
-            $html.='        <td '.$class_color.'>'.$value['test_score'].'</td>';
+            $html.='        <td '.$class_color.'>'.$value['final_score'].'</td>';
             $html.='    </tr>';
         }   
         $html.='    </tbody>';
@@ -188,16 +192,44 @@ class StatisticController extends Controller
         $html = '<label class="col-md-3">MSSV:</label><label class="col-md-9">'.$student_info->mssv.'</label>';
         $html .= '<label class="col-md-3">Họ và tên:</label><label class="col-md-9">'.$student_info->fullname.'</label>';
         $html .= '<label class="col-md-3">Ngày sinh:</label><label class="col-md-9">'.\Carbon\Carbon::parse($student_info->birthday)->format('d/m/Y').'</label>';
+        // Lớp chính quy
         if($student_info->regular_class_id){
             $html .= '<label class="col-md-3">Lớp chính quy:</label><label class="col-md-9">'.$student_info->regular_classes->name.'</label>';
         }else{
             $html .= '<label class="col-md-12">Lớp chính quy:</label>';
         }
-        if($student_info->has_certificate == 0){
-            $html .= '<label class="col-md-3">Chứng chỉ:</label><label class="col-md-9">Chưa có</label>';
+        // Chứng chỉ word
+        if($student_info->has_certificate_word == 0){
+            $html .= '<label class="col-md-3">Chứng chỉ word:</label><label class="col-md-9">Chưa có</label>';
         }
-        if($student_info->has_certificate == 1){
-            $html .= '<label class="col-md-3">Chứng chỉ:</label><label class="col-md-9">Đã có</label>';
+        if($student_info->has_certificate_word == 1){
+            $html .= '<label class="col-md-3">Chứng chỉ word:</label><label class="col-md-9">Đã có</label>';
+        }
+        // Chứng chỉ excel
+        if($student_info->has_certificate_excel == 0){
+            $html .= '<label class="col-md-3">Chứng chỉ excel:</label><label class="col-md-9">Chưa có</label>';
+        }
+        if($student_info->has_certificate_excel == 1){
+            $html .= '<label class="col-md-3">Chứng chỉ excel:</label><label class="col-md-9">Đã có</label>';
+        }
+        // Năm học
+        if($student_info->school_year){
+            $html .= '<label class="col-md-3">Năm học:</label><label class="col-md-9">'.$student_info->school_year.'</label>';
+        }else{
+            $html .= '<label class="col-md-12">Năm học:</label>';
+        }
+        // Điện thoại
+        if($student_info->phone){
+            $html .= '<label class="col-md-3">Điện thoại:</label><label class="col-md-9">'.$student_info->phone.'</label>';
+        }else{
+            $html .= '<label class="col-md-12">Điện thoại:</label>';
+        }
+        // Giới tính
+        if($student_info->gender == 0){
+            $html .= '<label class="col-md-3">Giới tính:</label><label class="col-md-9">Nữ</label>';
+        }
+        if($student_info->gender == 1){
+            $html .= '<label class="col-md-3">Giới tính:</label><label class="col-md-9">Nam</label>';
         }
         $html .= '<label class="col-md-12">Lớp trung tâm:</label>';
         $html .='<table class="table">';
@@ -205,7 +237,9 @@ class StatisticController extends Controller
         $html .='    <tr>';
         $html .='        <th>Mã lớp</th>';
         $html .='        <th>Năm học</th>';
-        $html .='        <th>Điểm số</th>';
+        $html .='        <th>Điểm bộ phận</th>';
+        $html .='        <th>Điểm thi</th>';
+        $html .='        <th>Điểm tổng kết</th>';
         $html .='    </tr>';
         $html .='    </thead>';
         $html .='    <tbody>';
@@ -213,13 +247,15 @@ class StatisticController extends Controller
             $html.='    <tr>';
             $html.='        <td>'.$value->class_code.'</td>';
             $html.='        <td>'.$value->school_year.'</td>';
-            $student_center_class = StudentsCenterClass::select('test_score')->where(['student_id'=>$student_info->id, 'center_class_id'=>$value->id])->first();
-            if($student_center_class->test_score >= 5){
+            $student_center_class = StudentsCenterClass::select('process_score','test_score','final_score')->where(['student_id'=>$student_info->id, 'center_class_id'=>$value->id])->first();
+            $html.='        <td>'.$student_center_class->process_score.'</td>';
+            $html.='        <td>'.$student_center_class->test_score.'</td>';
+            if($student_center_class->final_score >= 5){
                 $class_color = 'style="color: blue;"';
             }else{
                 $class_color = 'style="color: red;"';
             }
-            $html.='        <td '.$class_color.'>'.$student_center_class->test_score.'</td>';
+            $html.='        <td '.$class_color.'>'.$student_center_class->final_score.'</td>';
             $html.='    </tr>';
         }   
         $html.='    </tbody>';

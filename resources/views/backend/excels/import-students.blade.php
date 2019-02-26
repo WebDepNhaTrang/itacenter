@@ -9,7 +9,7 @@
 @section('page_header')
     <h1 class="page-title">
         <i class="icon voyager-list-add"></i>
-        Import Students
+        Import sinh viên
     </h1>
 @stop
 
@@ -27,13 +27,13 @@
 
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="file">File Input</label>
+                                <label for="file">Chọn tập tin</label>
                                 <input type="file" name="students_file" id="file-import">
                             </div>
                         </div>
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary save" id="import-btn">{{ __('Import') }}</button>
-                            <button type="submit" class="btn btn-success save" id="review-btn">{{ __('Review') }}</button>
+                            <button type="submit" class="btn btn-primary save" id="import-btn">{{ __('Nhập liệu') }}</button>
+                            <button type="submit" class="btn btn-success save" id="review-btn">{{ __('Xem trước') }}</button>
                         </div>
                     </form>
                 </div>
@@ -85,12 +85,16 @@
                             html += '<table class="table">';
                             html +=     '<thead>';
                             html +=     '<tr>';
-                            html +=         '<th>No.</th>';
-                            html +=         '<th>Fullname</th>';
-                            html +=         '<th>Student Code</th>';
-                            html +=         '<th>Birthday</th>';
-                            html +=         '<th>Regular Class</th>';
-                            html +=         '<th>Has Certificate</th>';
+                            html +=         '<th>STT</th>';
+                            html +=         '<th>Họ tên</th>';
+                            html +=         '<th>MSSV</th>';
+                            html +=         '<th>Ngày sinh</th>';
+                            html +=         '<th>Lớp chính quy</th>';
+                            html +=         '<th>Chứng chỉ word</th>';
+                            html +=         '<th>Chứng chỉ excel</th>';
+                            html +=         '<th>Năm học</th>';
+                            html +=         '<th>Điện thoại</th>';
+                            html +=         '<th>Giới tính</th>';
                             html +=     '</tr>';
                             html +=     '</thead>';
                             html +=     '<tbody>';
@@ -102,7 +106,11 @@
                                 
                                 html +=        '<td>'+ value.birthday.date.substring(0,10) +'</td>';
                                 html +=        '<td>'+ value.regular_class +'</td>';
-                                html +=        '<td>'+ value.has_certificate +'</td>';
+                                html +=        '<td>'+ value.has_certificate_word +'</td>';
+                                html +=        '<td>'+ value.has_certificate_excel +'</td>';
+                                html +=        '<td>'+ value.school_year +'</td>';
+                                html +=        '<td>'+ value.phone +'</td>';
+                                html +=        '<td>'+ value.gender +'</td>';
                                 html +=    '</tr>';
                             });
                             html +=    '</tbody>';

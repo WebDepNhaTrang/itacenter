@@ -190,7 +190,7 @@
                                             @endforeach
                                             <!-- Add Mark Button -->
                                             <a href="{{ route('backend.mark.getAdd', $data->getKey() ) }}" title="Mark" class="btn btn-sm btn-primary pull-right edit" style="margin-right: 5px;">
-                                                <i class="voyager-list-add"></i> <span class="hidden-xs hidden-sm">Mark</span>
+                                                <i class="voyager-list-add"></i> <span class="hidden-xs hidden-sm">Quản lý lớp</span>
                                             </a>
                                         </td>
                                     </tr>
