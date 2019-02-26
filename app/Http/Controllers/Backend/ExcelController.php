@@ -66,6 +66,8 @@ class ExcelController extends Controller
                     $student_list[] = ['mssv' => $value->student_code, 'fullname' => $value->fullname, 'birthday' => $value->birthday, 'regular_class_id' => $value->regular_class, 'has_certificate' => $value->has_certificate, 'created_at' => Carbon::now()];
                 }
 
+                
+
                 // dd($dups->get());
                 if(!empty($student_list)){
                     Student::insertIgnore($student_list);

@@ -106,6 +106,10 @@ Route::get('/thong-bao', function (){
     return view('frontend.pages.notification');
 })->name('frontend.pages.notification');
 
+Route::get('/qui-trinh', function (){
+    return view('frontend.pages.rule');
+})->name('frontend.pages.rule');
+
 // Liên hệ
 Route::get('/lien-he', function (){
     return view('frontend.pages.contact');

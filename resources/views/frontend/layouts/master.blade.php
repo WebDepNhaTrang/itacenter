@@ -15,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title') | Trung Tâm CNTT & MTUD</title>
-
+        
         <meta name="description" content="@yield('description')">
         <meta name="keywords" content="Trung Tâm CNTT ĐH KH, Đại Học KHánh Hòa, @yield('keywords')">
         <meta name="author" content="Trung Tâm CNTT&MTUD" />
@@ -36,6 +36,17 @@
         <meta property="og:image"         content="@yield('fb_img')" />
 
         @include('frontend.partials.head')
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124175833-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-124175833-1');
+        </script>
+
     </head>
     
     <body>
@@ -48,7 +59,7 @@
         js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1&appId=534064153706931&autoLogAppEvents=1';
         fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-
+        
         @include('frontend.partials.header')
 
         @yield('content')

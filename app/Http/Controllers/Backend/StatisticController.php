@@ -193,7 +193,6 @@ class StatisticController extends Controller
         }else{
             $html .= '<label class="col-md-12">Lớp chính quy:</label>';
         }
-        
         if($student_info->has_certificate == 0){
             $html .= '<label class="col-md-3">Chứng chỉ:</label><label class="col-md-9">Chưa có</label>';
         }

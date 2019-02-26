@@ -297,7 +297,7 @@ Header CSS
 }
 .logo a img{
     margin-right: 0px;
-    width: 200px;
+    width: 210px;
 }
 .nav_area{
     padding-right: 35px;
@@ -1162,12 +1162,12 @@ Latest From Our Blog CSS
 }
 .blog_post_heading{
     padding: 15px 5px 0;
-    border-bottom: 1px solid #dddddd;
+    /* border-bottom: 1px solid #dddddd; */
 }
 .blog_post_heading h2{
     margin-bottom: 10px;
-    line-height: 20px;
     height: 70px;
+    line-height: 20px;
 }
 .blog_post_heading h2 a{
     font-size: 16px;

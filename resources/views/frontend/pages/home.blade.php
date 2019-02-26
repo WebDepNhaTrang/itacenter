@@ -33,7 +33,7 @@
     <section>
         <div class="container-fluid">
             <div class="row">
-                    <img class="responsive" src="{{ Voyager::image(setting('home.banner_photo')) }}" alt="">
+                <img class="responsive" src="{{ Voyager::image(setting('home.banner_photo')) }}" alt="" style="width:100%;">
             </div>
         </div>
     </section>
@@ -56,23 +56,15 @@
                     @foreach($posts as $post)
                         <div class="col-md-4 col-sm-6">
                             <div class="single_blog_post_box">
-                                <!-- <div class="blog_post_photo">
-                                    <a href="{{ route('post.single', ['slug' => $post->slug]) }}">
-                                        <img src="{{ Voyager::image($post->image) }}" alt="{{ $post->title }}">
-                                    </a>
-                                    
-                                    <div class="blog_post_date_caption">
-                                        <span>{{ $post->created_at->format('d M') }}</span>
-                                    </div>
-                                </div> -->
                                 <div class="blog_post_txt">
+                                    <img class="responsive" src="{{ Voyager::image(setting('notification.img-notification')) }}" alt="" style="width:100%;">
                                     <div class="blog_post_heading">
                                         <h2><a href="{{ route('post.single', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
                                         <p>Đăng bởi : {{ $post->authorId->name }}<br>{{ $post->created_at->format('d-m-Y') }}</p>
                                     </div>
-                                    <div class="blog_post_content">
+                                    <!-- <div class="blog_post_content">
                                         <p class="description">{{ $post->excerpt }}</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
