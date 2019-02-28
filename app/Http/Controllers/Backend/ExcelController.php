@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Excel;
 use App\Student;
+use App\RegularClass;
 use Carbon\Carbon;
 
 class ExcelController extends Controller
@@ -62,19 +63,24 @@ class ExcelController extends Controller
                 // dd($rows);
 
                 foreach ($rows as $key => $value) {
-                    // print_r($value);
-                    $student_list[] = [
-                        'mssv' => $value->student_code,
-                        'fullname' => $value->fullname,
-                        'birthday' => $value->birthday,
-                        'regular_class_id' => $value->regular_class,
-                        'has_certificate_word' => $value->has_certificate_word,
-                        'has_certificate_excel' => $value->has_certificate_excel,
-                        'school_year' => $value->school_year,
-                        'phone' => $value->phone,
-                        'gender' => $value->gender,
-                        'created_at' => Carbon::now()
-                    ];
+                    
+                    $regular_class = RegularClass::where('class_code', $value->regular_class_code)->first();
+                    // print($regular_class->id);
+                    // die();
+                    if($regular_class){
+                        $student_list[] = [
+                            'mssv' => $value->student_code,
+                            'fullname' => $value->fullname,
+                            'birthday' => $value->birthday,
+                            'regular_class_id' => $regular_class->id,
+                            'has_certificate_word' => $value->has_certificate_word,
+                            'has_certificate_excel' => $value->has_certificate_excel,
+                            'school_year' => $value->school_year,
+                            'phone' => $value->phone,
+                            'gender' => $value->gender,
+                            'created_at' => Carbon::now()
+                        ];
+                    }
                 }
 
                 

@@ -89,7 +89,7 @@
                             html +=         '<th>Họ tên</th>';
                             html +=         '<th>MSSV</th>';
                             html +=         '<th>Ngày sinh</th>';
-                            html +=         '<th>Lớp chính quy</th>';
+                            html +=         '<th>Mã lớp chính quy</th>';
                             html +=         '<th>Chứng chỉ word</th>';
                             html +=         '<th>Chứng chỉ excel</th>';
                             html +=         '<th>Năm học</th>';
@@ -105,7 +105,7 @@
                                 html +=        '<td>'+ value.student_code +'</td>';
                                 
                                 html +=        '<td>'+ value.birthday.date.substring(0,10) +'</td>';
-                                html +=        '<td>'+ value.regular_class +'</td>';
+                                html +=        '<td>'+ value.regular_class_code +'</td>';
                                 html +=        '<td>'+ value.has_certificate_word +'</td>';
                                 html +=        '<td>'+ value.has_certificate_excel +'</td>';
                                 html +=        '<td>'+ value.school_year +'</td>';
