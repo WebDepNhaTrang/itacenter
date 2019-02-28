@@ -9,6 +9,8 @@ class Student extends Model
 {
     protected $table='students';
 
+    protected $perPage = 50; // other code
+
     protected $fillable = ['id', 'mssv', 'fullname', 'birthday', 'regular_class_id', 'has_certificate_word', 'has_certificate_excel', 'school_year', 'gender', 'phone'];
 
     public $timestamps = true;
@@ -16,7 +18,7 @@ class Student extends Model
     public function center_classes()
     {
         return $this->belongsToMany('App\CenterClass', 'students_center_classes', 'student_id', 'center_class_id')
-                    ->withPivot('center_class_id', 'student_id', 'process_score', 'test_score', 'final_score')
+                    ->withPivot('center_class_id', 'student_id', 'process_score', 'test_score', 'final_score', 'hoc_lai', 'dong_dien_hoc')
                     ->withTimestamps();
     }
 

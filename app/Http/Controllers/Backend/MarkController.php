@@ -20,8 +20,10 @@ class MarkController extends Controller
     {
         $center_class_id = $request->input('center_class_id');
         $process_scores = $request->input('process_score');
-        // dd($process_scores[102]);
         $test_scores = $request->input('test_score');
+        $hoc_lai = $request->input('hoc_lai');
+        $dong_tien_hoc = $request->input('dong_tien_hoc');
+        // dd($hoc_lai);
 
         foreach($test_scores as $student_id => $test_score){
             StudentsCenterClass::where('center_class_id', $center_class_id)
@@ -29,7 +31,9 @@ class MarkController extends Controller
             ->update([
                 'test_score' => $test_score,
                 'process_score' => $process_scores[$student_id],
-                'final_score' => ($test_score+$process_scores[$student_id])/2
+                'final_score' => ($test_score+$process_scores[$student_id])/2,
+                'hoc_lai' => (isset($hoc_lai[$student_id]) && $hoc_lai[$student_id] == 'on') ? 'on' : null,
+                'dong_tien_hoc' => (isset($dong_tien_hoc[$student_id]) && $dong_tien_hoc[$student_id] == 'on') ? 'on' : null
             ]);
         }
 

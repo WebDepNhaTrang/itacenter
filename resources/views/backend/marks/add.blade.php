@@ -31,20 +31,26 @@
                                 <div class="col-md-1">
                                     <label for="mssv" style="font-weight: 700;">STT</label>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-1">
                                     <label for="mssv" style="font-weight: 700;">MSSV</label>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <label for="fullname" style="font-weight: 700;">Họ Tên</label>
                                 </div>
+                                <div class="col-md-1">
+                                    <label for="hoc-lai" style="font-weight: 700;">Học lại</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="hoc-phi" style="font-weight: 700;">Đóng tiền học</label>
+                                </div>
                                 <div class="col-md-2">
-                                    <label for="test-score" style="font-weight: 700;">Điểm bộ phận</label>
+                                    <label for="process-score" style="font-weight: 700;">Điểm bộ phận</label>
                                 </div>
                                 <div class="col-md-2">
                                     <label for="test-score" style="font-weight: 700;">Điểm thi</label>
                                 </div>
                                 <div class="col-md-2">
-                                    <label for="test-score" style="font-weight: 700;">Điểm tổng kết</label>
+                                    <label for="final-score" style="font-weight: 700;">Điểm tổng kết</label>
                                 </div>
                             </div>
                         </div>
@@ -57,11 +63,17 @@
                                     <div class="col-md-1">
                                         <label for="mssv">{{ $count }}</label>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-1">
                                         <label for="mssv">{{ $student->mssv }}</label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <label for="fullname">{{ $student->fullname }}</label>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <input type="checkbox" <?php echo ($student->pivot->hoc_lai == 'on') ? 'checked' : ''; ?> name="hoc_lai[{{ $student->id }}]">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <input type="checkbox" <?php echo ($student->pivot->dong_tien_hoc == 'on') ? 'checked' : ''; ?> name="dong_tien_hoc[{{ $student->id }}]">
                                     </div>
                                     <div class="col-md-2">
                                         <input type="number" class="form-control" name="process_score[{{ $student->id }}]" value="{{ ($student->pivot->process_score) ? $student->pivot->process_score : 0 }}" step="0.25" max="10" min="0">
@@ -78,7 +90,7 @@
                             @else
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <label for="mssv">There are no students in this class!</label>
+                                        <label for="mssv">Không có học sinh trong lớp này!</label>
                                     </div>
                                 </div>
                             @endif
@@ -87,7 +99,7 @@
                         </div>
 
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary save">{{ __('Save') }}</button>
+                            <button type="submit" class="btn btn-primary save">{{ __('Lưu') }}</button>
                         </div>
                     </form>
                     

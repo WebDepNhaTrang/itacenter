@@ -191,7 +191,12 @@ class StatisticController extends Controller
 
         $html = '<label class="col-md-3">MSSV:</label><label class="col-md-9">'.$student_info->mssv.'</label>';
         $html .= '<label class="col-md-3">Họ và tên:</label><label class="col-md-9">'.$student_info->fullname.'</label>';
-        $html .= '<label class="col-md-3">Ngày sinh:</label><label class="col-md-9">'.\Carbon\Carbon::parse($student_info->birthday)->format('d/m/Y').'</label>';
+        // Ngày sinh
+        if($student_info->birthday){
+            $html .= '<label class="col-md-3">Ngày sinh:</label><label class="col-md-9">'.\Carbon\Carbon::parse($student_info->birthday)->format('d/m/Y').'</label>';
+        }else{
+            $html .= '<label class="col-md-3">Ngày sinh:</label><label class="col-md-9">null</label>';
+        }
         // Lớp chính quy
         if($student_info->regular_class_id){
             $html .= '<label class="col-md-3">Lớp chính quy:</label><label class="col-md-9">'.$student_info->regular_classes->name.'</label>';

@@ -16,7 +16,7 @@ class CenterClass extends Model
     public function students()
     {
         return $this->belongsToMany('App\Student', 'students_center_classes', 'center_class_id', 'student_id')
-                    ->withPivot('center_class_id', 'student_id', 'process_score', 'test_score', 'final_score')
+                    ->withPivot('center_class_id', 'student_id', 'process_score', 'test_score', 'final_score', 'hoc_lai', 'dong_tien_hoc')
                     ->withTimestamps();
     }
 }
