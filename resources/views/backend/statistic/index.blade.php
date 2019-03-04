@@ -31,6 +31,7 @@
                                 <select class="form-control" name="statistic" id="statistic">
                                     <option value="year" selected>Năm học</option>
                                     <option value="center_class">Lớp trung tâm</option>
+                                    <option value="regular_class">Lớp chính quy</option>
                                     <option value="student">Sinh viên</option>
                                 </select>
                             </div>
@@ -43,6 +44,14 @@
                                 <select id="" class="form-control select2" name="center_class_input">
                                     @foreach($center_classes as $center_class)
                                     <option value="{{ $center_class->id }}">{{ $center_class->class_code }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group" id="regular_class_input">
+                                <label for="regular_class_input">Lớp chính quy:</label>
+                                <select id="" class="form-control select2" name="regular_class_input">
+                                    @foreach($regular_classes as $regular_class)
+                                    <option value="{{ $regular_class->id }}">{{ $regular_class->class_code }} - {{ $regular_class->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -74,6 +83,7 @@
     <script>
         $('document').ready(function () {
             $("#center_class_input").hide();
+            $("#regular_class_input").hide();
             $("#student_input").hide();
 
             $('#statistic').on('change', function() {
@@ -81,9 +91,17 @@
                     $("#year_input").show();
                     $("#center_class_input").hide();
                     $("#student_input").hide();
+                    $("#regular_class_input").hide();
                 }
                 if(this.value == 'center_class'){
                     $("#center_class_input").show();
+                    $("#year_input").hide();
+                    $("#student_input").hide();
+                    $("#regular_class_input").hide();
+                }
+                if(this.value == 'regular_class'){
+                    $("#regular_class_input").show();
+                    $("#center_class_input").hide();
                     $("#year_input").hide();
                     $("#student_input").hide();
                 }
@@ -91,6 +109,7 @@
                     $("#student_input").show();
                     $("#year_input").hide();
                     $("#center_class_input").hide();
+                    $("#regular_class_input").hide();
                 }
             });
 
@@ -132,6 +151,23 @@
                         data:{ 'center_class_id': center_class_id },
                         success:function(data){
                             
+                            if(data.result == 'true'){
+                                $(".show-review").html(data.data)
+                            }else{
+                                $(".show-review").html("<h3>"+data.message+"</h3>")
+                            }
+                        }
+                    });
+                // Thống kê theo lớp chính quy
+                }else if( $("#statistic").val() == 'regular_class' ){
+                    var regular_class_id = $("#regular_class_input option:selected").val();
+                    
+                    $(".show-review").html("<h3>Loading...</h3>");
+                    $.ajax({
+                        method:'post',
+                        url:"{{ route('backend.statistic.by_regular_class') }}",
+                        data:{ 'regular_class_id': regular_class_id },
+                        success:function(data){
                             if(data.result == 'true'){
                                 $(".show-review").html(data.data)
                             }else{

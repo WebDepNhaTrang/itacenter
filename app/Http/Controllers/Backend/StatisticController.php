@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\CenterClass;
+use App\RegularClass;
 use App\StudentsCenterClass;
 use App\Student;
 
@@ -12,11 +13,18 @@ class StatisticController extends Controller
 {
     public function index(){
         $center_classes = CenterClass::all();
+        $regular_classes = RegularClass::all();
         $students = Student::all();
 
-        return view('backend.statistic.index', ['center_classes' => $center_classes, 'students' => $students]);
+        return view('backend.statistic.index', 
+            [
+                'center_classes' => $center_classes, 
+                'regular_classes' => $regular_classes, 
+                'students' => $students
+            ]);
     }
 
+    // postStatisticByYear
     public function postStatisticByYear(Request $request){
 
         $year = $request->input('year');
@@ -52,6 +60,7 @@ class StatisticController extends Controller
         }   
     }
 
+    // renderStatisticByYear
     protected function renderStatisticByYear($data){
         $html ='<table class="table">';
         $html.='    <thead>';
@@ -79,6 +88,7 @@ class StatisticController extends Controller
         return $html;
     }
 
+    // postStatisticByCenterClass
     public function postStatisticByCenterClass(Request $request){
 
         $center_class_id = $request->input('center_class_id');
@@ -114,12 +124,15 @@ class StatisticController extends Controller
         }   
     }
 
+    // renderStatisticByCenterClass
     protected function renderStatisticByCenterClass($data){
         $html ='<table class="table">';
         $html.='    <thead>';
         $html.='    <tr>';
         $html.='        <th>Họ Tên</th>';
         $html.='        <th>MSSV</th>';
+        $html.='        <th>Học lại</th>';
+        $html.='        <th>Đóng tiền học</th>';
         $html.='        <th>Điểm bộ phận</th>';
         $html.='        <th>Điểm thi</th>';
         $html.='        <th>Điểm tổng kết</th>';
@@ -133,6 +146,10 @@ class StatisticController extends Controller
             $html.='    <tr>';
             $html.='        <td>'.$student_current->fullname.'</td>';
             $html.='        <td>'.$student_current->mssv.'</td>';
+            $hoc_lai = ($value->hoc_lai == 'on')?'Có':'Không';
+            $dong_tien_hoc = ($value->dong_tien_hoc == 'on')?'Đã đóng':'Chưa đóng';
+            $html.='        <td>'.$hoc_lai.'</td>';
+            $html.='        <td>'.$dong_tien_hoc.'</td>';
             $html.='        <td>'.$value['process_score'].'</td>';
             $html.='        <td>'.$value['test_score'].'</td>';
             if($value['final_score'] >= 5){
@@ -154,6 +171,7 @@ class StatisticController extends Controller
         return $html;
     }
 
+    // postStatisticByStudent
     public function postStatisticByStudent(Request $request){
         $student_id = $request->input('student_id');
         if($student_id){
@@ -187,6 +205,7 @@ class StatisticController extends Controller
         }
     }
 
+    // renderStatisticByStudent
     protected function renderStatisticByStudent($student_info){
 
         $html = '<label class="col-md-3">MSSV:</label><label class="col-md-9">'.$student_info->mssv.'</label>';
@@ -242,6 +261,8 @@ class StatisticController extends Controller
         $html .='    <tr>';
         $html .='        <th>Mã lớp</th>';
         $html .='        <th>Năm học</th>';
+        $html .='        <th>Học lại</th>';
+        $html .='        <th>Đóng tiền học</th>';
         $html .='        <th>Điểm bộ phận</th>';
         $html .='        <th>Điểm thi</th>';
         $html .='        <th>Điểm tổng kết</th>';
@@ -252,7 +273,11 @@ class StatisticController extends Controller
             $html.='    <tr>';
             $html.='        <td>'.$value->class_code.'</td>';
             $html.='        <td>'.$value->school_year.'</td>';
-            $student_center_class = StudentsCenterClass::select('process_score','test_score','final_score')->where(['student_id'=>$student_info->id, 'center_class_id'=>$value->id])->first();
+            $student_center_class = StudentsCenterClass::select('process_score','test_score','final_score','hoc_lai','dong_tien_hoc')->where(['student_id'=>$student_info->id, 'center_class_id'=>$value->id])->first();
+            $hoc_lai = ($student_center_class->hoc_lai == 'on')?'Có':'Không';
+            $dong_tien_hoc = ($student_center_class->dong_tien_hoc == 'on')?'Đã đóng':'Chưa đóng';
+            $html.='        <td>'.$hoc_lai.'</td>';
+            $html.='        <td>'.$dong_tien_hoc.'</td>';
             $html.='        <td>'.$student_center_class->process_score.'</td>';
             $html.='        <td>'.$student_center_class->test_score.'</td>';
             if($student_center_class->final_score >= 5){
@@ -268,6 +293,79 @@ class StatisticController extends Controller
 
         
 
+        return $html;
+    }
+
+    // postStatisticByRegularClass
+    public function postStatisticByRegularClass(Request $request){
+        $regular_class_id = $request->input('regular_class_id');
+        if($regular_class_id){
+
+            $students_of_class = Student::select('*')->where('regular_class_id', $regular_class_id)->get();
+
+            if(!$students_of_class->isEmpty()){
+
+                $html = $this->renderStatisticByRegularClass($students_of_class);
+                
+                return response()
+                ->json([
+                    'result' => 'true',
+                    'message' => 'Statistic By Regular Class',
+                    'data'    => $html
+                    // 'database' => $students_of_class
+                ]);
+            }else{
+                return response()
+                ->json([
+                    'result' => 'false',
+                    'message' => 'Dữ liệu rỗng',
+                    'data'    => null
+                ]);
+            }
+        }else{
+            return response()
+                ->json([
+                    'result' => 'false',
+                    'message' => 'Dữ liệu rỗng',
+                    'data'    => null
+                ]);
+        }
+    }
+    // renderStatisticByCenterClass
+    protected function renderStatisticByRegularClass($data){
+        $html ='<table class="table">';
+        $html.='    <thead>';
+        $html.='    <tr>';
+        $html.='        <th>Họ Tên</th>';
+        $html.='        <th>MSSV</th>';
+        $html .='       <th>Mã lớp</th>';
+        $html .='       <th>Học lại</th>';
+        $html .='       <th>Đóng tiền học</th>';
+        $html.='        <th>Điểm bộ phận</th>';
+        $html.='        <th>Điểm thi</th>';
+        $html.='        <th>Điểm tổng kết</th>';
+        $html.='    </tr>';
+        $html.='    </thead>';
+        $html.='    <tbody>';
+        foreach($data as $student){
+            foreach($student->center_classes as $center_class){
+                $student_center_class = StudentsCenterClass::select('process_score','test_score','final_score','hoc_lai','dong_tien_hoc')->where(['student_id'=>$student['id'], 'center_class_id'=>$center_class->id])->first();
+                $html.='    <tr>';
+                $html.='        <td>'.$student['fullname'].'</td>';
+                $html.='        <td>'.$student['mssv'].'</td>';
+                $html.='        <td>'.$center_class->class_code.'</td>';
+                $hoc_lai = ($student_center_class->hoc_lai == 'on')?'Có':'Không';
+                $dong_tien_hoc = ($student_center_class->dong_tien_hoc == 'on')?'Đã đóng':'Chưa đóng';
+                $html.='        <td>'.$hoc_lai.'</td>';
+                $html.='        <td>'.$dong_tien_hoc.'</td>';
+                $html.='        <td>'.$student_center_class->process_score.'</td>';
+                $html.='        <td>'.$student_center_class->test_score.'</td>';
+                $html.='        <td>'.$student_center_class->final_score.'</td>';
+                $html.='    </tr>';
+            }
+        }   
+        $html.='    </tbody>';
+        $html.='</table>';
         return $html;
     }
 }

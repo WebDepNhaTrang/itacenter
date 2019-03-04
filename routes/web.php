@@ -58,6 +58,11 @@ Route::group(['prefix' => 'admin'], function () {
         'uses'  => 'Backend\StatisticController@postStatisticByCenterClass',
         'as'    => 'backend.statistic.by_center_class'
     ]);
+    // Statistic By Center Class
+    Route::post('/statistic-by-regular-class', [
+        'uses'  => 'Backend\StatisticController@postStatisticByRegularClass',
+        'as'    => 'backend.statistic.by_regular_class'
+    ]);
     // Statistic By Student
     Route::post('/statistic-by-student', [
         'uses'  => 'Backend\StatisticController@postStatisticByStudent',
