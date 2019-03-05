@@ -12,8 +12,8 @@ use App\Student;
 class StatisticController extends Controller
 {
     public function index(){
-        $center_classes = CenterClass::all();
-        $regular_classes = RegularClass::all();
+        $center_classes = CenterClass::orderBy('id', 'desc')->get();
+        $regular_classes = RegularClass::orderBy('id', 'desc')->get();
         $students = Student::all();
 
         return view('backend.statistic.index', 
@@ -146,8 +146,8 @@ class StatisticController extends Controller
             $html.='    <tr>';
             $html.='        <td>'.$student_current->fullname.'</td>';
             $html.='        <td>'.$student_current->mssv.'</td>';
-            $hoc_lai = ($value->hoc_lai == 'on')?'Có':'Không';
-            $dong_tien_hoc = ($value->dong_tien_hoc == 'on')?'Đã đóng':'Chưa đóng';
+            $hoc_lai = ($value->hoc_lai == 'on')?'<span class="voyager-check"></span>':'';
+            $dong_tien_hoc = ($value->dong_tien_hoc == 'on')?'<span class="voyager-check"></span>':'';
             $html.='        <td>'.$hoc_lai.'</td>';
             $html.='        <td>'.$dong_tien_hoc.'</td>';
             $html.='        <td>'.$value['process_score'].'</td>';
@@ -274,8 +274,8 @@ class StatisticController extends Controller
             $html.='        <td>'.$value->class_code.'</td>';
             $html.='        <td>'.$value->school_year.'</td>';
             $student_center_class = StudentsCenterClass::select('process_score','test_score','final_score','hoc_lai','dong_tien_hoc')->where(['student_id'=>$student_info->id, 'center_class_id'=>$value->id])->first();
-            $hoc_lai = ($student_center_class->hoc_lai == 'on')?'Có':'Không';
-            $dong_tien_hoc = ($student_center_class->dong_tien_hoc == 'on')?'Đã đóng':'Chưa đóng';
+            $hoc_lai = ($student_center_class->hoc_lai == 'on')?'<span class="voyager-check"></span>':'';
+            $dong_tien_hoc = ($student_center_class->dong_tien_hoc == 'on')?'<span class="voyager-check"></span>':'';
             $html.='        <td>'.$hoc_lai.'</td>';
             $html.='        <td>'.$dong_tien_hoc.'</td>';
             $html.='        <td>'.$student_center_class->process_score.'</td>';
@@ -354,8 +354,8 @@ class StatisticController extends Controller
                 $html.='        <td>'.$student['fullname'].'</td>';
                 $html.='        <td>'.$student['mssv'].'</td>';
                 $html.='        <td>'.$center_class->class_code.'</td>';
-                $hoc_lai = ($student_center_class->hoc_lai == 'on')?'Có':'Không';
-                $dong_tien_hoc = ($student_center_class->dong_tien_hoc == 'on')?'Đã đóng':'Chưa đóng';
+                $hoc_lai = ($student_center_class->hoc_lai == 'on')?'<span class="voyager-check"></span>':'';
+                $dong_tien_hoc = ($student_center_class->dong_tien_hoc == 'on')?'<span class="voyager-check"></span>':'';
                 $html.='        <td>'.$hoc_lai.'</td>';
                 $html.='        <td>'.$dong_tien_hoc.'</td>';
                 $html.='        <td>'.$student_center_class->process_score.'</td>';
